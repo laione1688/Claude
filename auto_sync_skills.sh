@@ -13,7 +13,7 @@ LOG_FILE="/tmp/claude-skills-sync.log"
 SYNC_MODE="${SYNC_MODE:-file}"  # 默认使用文件复制模式
 
 # Obsidian API 配置 (仅在 api 模式下使用)
-OBSIDIAN_API_URL="http://127.0.0.1:27123"
+OBSIDIAN_API_URL="http://127.0.0.1:27124"
 OBSIDIAN_API_KEY="6dc6ae6497aa285257c303998d328c2ce59f3b527def4ead2d79dff289e0d2da"
 VAULT_PATH="SKILL資料"
 
