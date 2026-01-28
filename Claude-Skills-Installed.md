@@ -2,8 +2,8 @@
 
 > 完整的 Claude Code 技能安装清单，包含名称、功能说明及原始来源
 
-**更新日期**: 2026-01-24
-**总计**: 37 个技能 + 9 个智能体 + 15 个命令 + 8 个规则
+**更新日期**: 2026-01-28
+**总计**: 38 个技能 + 9 个智能体 + 15 个命令 + 8 个规则
 
 ---
 
@@ -34,6 +34,14 @@
 - **触发方式**: `/notebooklm` 或 "create a podcast about X"、"generate a quiz"
 - **原始网址**: https://github.com/teng-lin/notebooklm-py
 - **安装方式**: `pip install notebooklm-py` + `notebooklm skill install`
+
+#### wechat-to-notebooklm
+- **功能**: 微信公众号文章自动同步到 NotebookLM 工具，自动抓取文章内容、转换为 Markdown、创建笔记本并上传到 NotebookLM
+- **触发方式**: "Sync this WeChat article to NotebookLM"、"Add this mp.weixin.qq.com link"、"把这篇微信文章添加到 NotebookLM"
+- **原始网址**: https://github.com/zstmfhy/wechat-to-notebooklm
+- **安装方式**: 手动克隆并复制到 `~/.claude/skills/wechat-to-notebooklm/`
+- **依赖**: NotebookLM CLI（需要 `notebooklm login` 认证）
+- **支持**: 仅支持公开可访问的 mp.weixin.qq.com 文章
 
 ---
 
