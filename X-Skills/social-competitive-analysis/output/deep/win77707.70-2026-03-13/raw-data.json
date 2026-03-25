@@ -1,0 +1,273 @@
+{
+  "scrapedAt": "2026-03-13T01:53:30.410Z",
+  "mode": "deep",
+  "target": "win77707.70",
+  "settings": {
+    "maxPosts": 500,
+    "daysLookback": 9999
+  },
+  "data": {
+    "name": "win77707.70",
+    "platforms": {
+      "tiktok": null,
+      "instagram": {
+        "platform": "instagram",
+        "competitor": "win77707.70",
+        "username": "win77707.70",
+        "followersCount": 18778,
+        "followingCount": 17,
+        "postsCount": 56,
+        "isVerified": true,
+        "posts": [
+          {
+            "id": "3806727193981316419",
+            "shortCode": "DTUNjbKE21D",
+            "url": "https://www.instagram.com/p/DTUNjbKE21D/",
+            "caption": "你以為虎爺歪頭是雕歪？其實....\n#玄天上帝 #虎爺 #廟會 #道教 #台灣景點",
+            "type": "Video",
+            "timestamp": "2026-01-10T03:55:03.000Z",
+            "likesCount": 17142,
+            "commentsCount": 761,
+            "hashtags": [
+              "玄天上帝",
+              "虎爺",
+              "廟會",
+              "道教",
+              "台灣景點"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/613199424_1411588400495919_7934527395464668010_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=103&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=rtdALcoZxZwQ7kNvwEQAA4A&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfwDmBeRA6u3FJwQj71Td7RD6bkjcL1etzYt6UCjY9Tcjw&oe=69B93335&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t2/f2/m86/AQOW3XEx5jYF6G0bpgJGHOsXHwItM9YO7t1b03QWUztHxYljVb6Dghi3NFqpjaB1Zm4ciMmP2buh9iXwYoNB7dEGsF6DpdDm6cEjuAY.mp4?_nc_cat=107&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=srK1FBmzJgcQ7kNvwHZcPDc&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MjY0NDc1NzE2ODgxNjI5MjAsImFzc2V0X2FnZV9kYXlzIjo2MSwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjI3LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=de85e2730023d153&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC9CMzRDNjVEODlGOUI3RUIzQzg3M0Q0MjJDNjZFNDk5Rl92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYRmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC85MTgwNzMyMzcyMTk3MjZfMTUwNDU2NjMwNzE3MTQxNjg3MC5tcDQVAgLIARIAKAAYABsCiAd1c2Vfb2lsATEScHJvZ3Jlc3NpdmVfcmVjaXBlATEVAAAm0JmouqT7-l0VAigCQzMsF0A7ZmZmZmZmGBJkYXNoX2Jhc2VsaW5lXzFfdjERAHX-B2XmnQEA&oh=00_Afz01xv6QYFXmuL5uegrFvBeYTaLupoUpBckxmcRa2rwWg&oe=69B532D8",
+            "isSponsored": false
+          },
+          {
+            "id": "3786430000246538397",
+            "shortCode": "DSMGgYbk8Cd",
+            "url": "https://www.instagram.com/p/DSMGgYbk8Cd/",
+            "caption": "靦腆的川叔，一上身就不是同一個人\n#玄天上帝 #濟公禪師 #我要上推薦 #道教 #廟會 #民俗 #民俗文化 #馬來西亞 #台灣景點",
+            "type": "Video",
+            "timestamp": "2025-12-13T03:49:29.000Z",
+            "likesCount": 11848,
+            "commentsCount": 133,
+            "hashtags": [
+              "玄天上帝",
+              "濟公禪師",
+              "我要上推薦",
+              "道教",
+              "廟會",
+              "民俗",
+              "民俗文化",
+              "馬來西亞",
+              "台灣景點"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/599369849_1350119686318190_797701820677020981_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=102&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=QjBCgOYBxbsQ7kNvwHWzoCa&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfwEt5razcE23XzTzBXQOpvm1Ten0x15x2GuFVH5mUnp9w&oe=69B9252B&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t2/f2/m86/AQOjgzJ2SUUc8rzDXCDngCrIo8augjBwpLtenqJUKdUnRmn72yqSbWnQnf3ewRAODUuES-dRB-xZMYXmXDOQXgsZY9e7ytYRY9FMLv8.mp4?_nc_cat=104&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=atWMnQZcK0QQ7kNvwFpW37N&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6ODUyNzA0NDYwOTM1NDk1LCJhc3NldF9hZ2VfZGF5cyI6ODksInZpX3VzZWNhc2VfaWQiOjEwMDk5LCJkdXJhdGlvbl9zIjozNiwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=d5db77f77026efc0&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC9FQzRBMDYyOTQ5RDNBOTI0RjI0QTk2NEYzRDREMUE4NF92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HT2JNcVNNZ096SDBYb01HQUQzQWhWaGR0VjE4YnN0VEFRQUYVAgLIARIAKAAYABsCiAd1c2Vfb2lsATEScHJvZ3Jlc3NpdmVfcmVjaXBlATEVAAAmjsXwp_fhgwMVAigCQzMsF0BCe6XjU_fPGBJkYXNoX2Jhc2VsaW5lXzFfdjERAHX-B2XmnQEA&oh=00_AfwZ9zrtfh9zq_zNYcq7fgIhK2-m-CnNNXuSCmUe2s9ufQ&oe=69B56149",
+            "isSponsored": false
+          },
+          {
+            "id": "3850213783126646988",
+            "shortCode": "DVutQlUk6DM",
+            "url": "https://www.instagram.com/p/DVutQlUk6DM/",
+            "caption": "宮廟每年一定要進香的 真正原因是…\n#玄天上帝 #廟會 #道教 #我要上推薦 #台灣景點",
+            "type": "Video",
+            "timestamp": "2026-03-11T03:55:20.000Z",
+            "likesCount": 3246,
+            "commentsCount": 15,
+            "hashtags": [
+              "玄天上帝",
+              "廟會",
+              "道教",
+              "我要上推薦",
+              "台灣景點"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/649881528_867514156335742_464996870463050221_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=110&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=PEWGyCN38M8Q7kNvwFiJ1F2&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Afzy-TZDiDAChjUImA7nZ_qZoRMPr5XoPQkjCiPHri-wWw&oe=69B93B15&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t16/f2/m69/AQNUtlvmUIzYOW4kt9EozivbrZAHY5WyEuVKfktb8MpZEFF3ms4NgKzMK8P2oalcSFTSJPzEm0jT-gdLDLLhTQUz.mp4?strext=1&_nc_cat=106&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=3x_YxfHK9e8Q7kNvwG_X_aV&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTc4NTQ3NTA3NjQ2Mjk0NzYsImFzc2V0X2FnZV9kYXlzIjoxLCJ2aV91c2VjYXNlX2lkIjoxMDA5OSwiZHVyYXRpb25fcyI6MjMsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=4d39b6d518ab1b23&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HR3RQdnlicWxJZFAtbUFFQU5TQzZYcTJxeW9xYnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyLzk2NDI0QjlCQ0VFQkNCMDc3MkUxM0VENTVGOTFBNjhGX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbI94fOo7O3PxUCKAJDMywXQDfmZmZmZmYYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&oh=00_AfzHdEpgOd53Y6Hu7XV4Ytf3Vd77w5GF57bhhU0MPUDa3w&oe=69B94CD2",
+            "isSponsored": false
+          },
+          {
+            "id": "3845864736832082469",
+            "shortCode": "DVfQZoVE9Il",
+            "url": "https://www.instagram.com/p/DVfQZoVE9Il/",
+            "caption": "屏東網友一句話嚇到川叔：原來他是….\n#玄天上帝 #廟會 #道教 #我要上推薦 #台灣景點",
+            "type": "Video",
+            "timestamp": "2026-03-05T03:54:14.000Z",
+            "likesCount": 3485,
+            "commentsCount": 29,
+            "hashtags": [
+              "玄天上帝",
+              "廟會",
+              "道教",
+              "我要上推薦",
+              "台灣景點"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/641173836_1248188306736869_4288195616239720347_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=105&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=1_RVkyHUpbMQ7kNvwGj_r7e&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Afzz05sHZZbURnEPqKWZakYnZWdrRSFFreLYtzSzQn6Mwg&oe=69B95774&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t16/f2/m69/AQPzd2yxsbNq9ekLjWSnx-Tc9N49R7mtQY4AMaYS1qoYZWSAp66glwM4-yi3mUw57jHPha3q6M_WD7Fwpxhbjagd.mp4?strext=1&_nc_cat=107&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=JJGLrXwI2y8Q7kNvwHicx2U&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTc4NTQwMzIyMTA2Mjk0NzYsImFzc2V0X2FnZV9kYXlzIjo3LCJ2aV91c2VjYXNlX2lkIjoxMDA5OSwiZHVyYXRpb25fcyI6MjksInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=97be670e61e7d8f&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HT2pyb3lhbG50eEs4VjhJQVBBUktVNFVQR3hKYnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyLzczNDM4OEQ4NzJEMjgzOEYwQjQ2NzVCNjM1OTAwMDkwX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbIzcj7uYm3PxUCKAJDMywXQD07peNT988YEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&oh=00_AfyIjty1vAvbMiTxI_p1ccA2vxN-B3ntJUKiqOiAfW2MHg&oe=69B94129",
+            "isSponsored": false
+          },
+          {
+            "id": "3840780827287033956",
+            "shortCode": "DVNMdAmkxhk",
+            "url": "https://www.instagram.com/p/DVNMdAmkxhk/",
+            "caption": "為什麼川叔把「半個家」變成宮廟？背後原因太震撼…\n#玄天上帝 #廟會 #道教 #台灣景點 #我要上推薦",
+            "type": "Video",
+            "timestamp": "2026-02-26T03:33:32.000Z",
+            "likesCount": 2557,
+            "commentsCount": 8,
+            "hashtags": [
+              "玄天上帝",
+              "廟會",
+              "道教",
+              "台灣景點",
+              "我要上推薦"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/638295890_1969496220628149_6416454701972217113_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=Ue8lAj8HrUAQ7kNvwHE1VGe&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfwRpc2LU_Ix1NxipwOrDqHaTiLxghlSd6NMolA-RW2VNw&oe=69B92634&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t16/f2/m69/AQNvwg68rcrg7MaR5A9R8ETyoFlwdpkZKRDbQnsjKfx4sYzO9Yf4P4_oYr_oNmmZJD5NSAqQ_wt0T3yYSREY1F3m.mp4?strext=1&_nc_cat=106&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=1ZO--6MalOMQ7kNvwHi6whz&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTc4NTMxOTAyMDk2Mjk0NzYsImFzc2V0X2FnZV9kYXlzIjoxNCwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjI3LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=5c7b032f8ed7019a&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HSF9qTFNaNFFuQTROZTRGQURYU3FUY2s4SFV2YnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyLzkwNDNEN0M4MTgwMzkzQzY3NjFDNzM5NEVDM0M2ODlDX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbItOvIuNi2PxUCKAJDMywXQDuIcrAgxJwYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&oh=00_AfwPmgj42RpkyuHtsrb3d6IovwCLWpGfrVaTzuOyb33jaQ&oe=69B94E42",
+            "isSponsored": false
+          },
+          {
+            "id": "3838646458313331566",
+            "shortCode": "DVFnJ2mE9Nu",
+            "url": "https://www.instagram.com/p/DVFnJ2mE9Nu/",
+            "caption": "這一撞，川叔再也不逞強、全程交給神\n#玄天上帝 #廟會 #道教 #我要上推薦 #台灣景點",
+            "type": "Video",
+            "timestamp": "2026-02-23T04:52:41.000Z",
+            "likesCount": 2287,
+            "commentsCount": 20,
+            "hashtags": [
+              "玄天上帝",
+              "廟會",
+              "道教",
+              "我要上推薦",
+              "台灣景點"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/640359354_1458766779195007_3866817040446688210_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=T--QklWH6YcQ7kNvwEev50_&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfzHIoWH4E1b7E7NhsP9qlOiW6zgtAieASMwvDdHn9wsmA&oe=69B936E3&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t16/f2/m69/AQPJKkFbJUO5gEDMREmH1FYuCjoZuBCESFBeZADqBoClNO5PPBkYSwupgHwR6sryEvuSaJ8fKUSQvYgYN_W4MGov.mp4?strext=1&_nc_cat=105&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=f0256w__5lQQ7kNvwGJPkDc&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTc4NTI4NzEwMTU2Mjk0NzYsImFzc2V0X2FnZV9kYXlzIjoxNywidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjIxLCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=1f4e6bf0d15e2019&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HSmUwTlNiWFgwRGFUMjBIQUYzaXp3NGIyYlVfYnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyL0Q0NDk5MUVBOURBQzk1RkFBMTk3MzQzMkRGRTg1M0IyX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbIityx7sW2PxUCKAJDMywXQDWQ5WBBiTcYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&oh=00_AfxWI2voXpAs3zwbGmEnpMHV5jrOpgUuog3UMZ_6tdGE1w&oe=69B93617",
+            "isSponsored": false
+          },
+          {
+            "id": "3832973983848066177",
+            "shortCode": "DUxdYfEk-yB",
+            "url": "https://www.instagram.com/p/DUxdYfEk-yB/",
+            "caption": "差點倒閉的年輕夫妻…找了川叔後整間店...結局太暖🔥\n#玄天上帝 #廟會 #道教 #台灣景點 #風水",
+            "type": "Video",
+            "timestamp": "2026-02-15T09:02:22.000Z",
+            "likesCount": 1904,
+            "commentsCount": 8,
+            "hashtags": [
+              "玄天上帝",
+              "廟會",
+              "道教",
+              "台灣景點",
+              "風水"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/629809997_1177278724477795_7970818796957001117_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=wWSF6nbSihEQ7kNvwEikXFj&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfyTcO6sbfwBkD33B4y4v4zQRGmU13WLUquPQ7poqe7GMQ&oe=69B94857&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t16/f2/m69/AQONxcgJ8lcxcxemgqS0ykqSnGswa2i65hLCLedw1SwjwbeiPj1XUToqBARBuFK7WvlBxJg5YqHeL5Zc4bsmtx6r.mp4?strext=1&_nc_cat=109&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=i_g44i14krMQ7kNvwEhQI8c&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTc4NTIwMDU2NTM2Mjk0NzYsImFzc2V0X2FnZV9kYXlzIjoyNSwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjQ4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=901af9b80473e1f3&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HS3FSX0NWLXZQSFhjOGNGQUx6T0dhVlVGd2Q5YnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyLzI3NEM2RDIxREQwOTQ3QkJCNDgzODc1MjVDQjg0NEIxX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbIqJr4vpO2PxUCKAJDMywXQEhIcrAgxJwYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&oh=00_AfyNJxfF_5-mmQbNo8gPIc5yR95zgem_X1ERyMeprSmpLQ&oe=69B95A67",
+            "isSponsored": false
+          },
+          {
+            "id": "3831374570046344653",
+            "shortCode": "DUrxt85E83N",
+            "url": "https://www.instagram.com/p/DUrxt85E83N/",
+            "caption": "49天除了學到法、還學到…\n#玄天上帝 #廟會 #道教 #民俗 #台灣景點",
+            "type": "Video",
+            "timestamp": "2026-02-13T04:06:10.000Z",
+            "likesCount": 1387,
+            "commentsCount": 14,
+            "hashtags": [
+              "玄天上帝",
+              "廟會",
+              "道教",
+              "民俗",
+              "台灣景點"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/628493819_1256119493079924_3268940472655223524_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=gOmeQhUaMooQ7kNvwFn6Lzf&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Afz1JJkQaqpcOAX_zUnB607kjpUgzV0bT2mpKB3vznZLSg&oe=69B95479&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t16/f2/m69/AQPklRhHqFQ29XD6JXAqGw2km5SvjTJWw_YR4vZLwh_ccb7rD3EycJlxHBswDz_WrjbVq9OY1KFXOq5_0TcbKmPY.mp4?strext=1&_nc_cat=111&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=W_JaVjHtJYUQ7kNvwFYCegV&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTc4NTE3MzY5NDM2Mjk0NzYsImFzc2V0X2FnZV9kYXlzIjoyNywidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjQ5LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=434ad8ab4f7512b8&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HT0RSMGlVMDBJME11bTBQQUtSTlh0OWYwTWc2YnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyLzE3NDA1NDdDRUY0MkM3QzJBQzA2NDZGQzUxNzNDNDhDX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbI0rDy7IO2PxUCKAJDMywXQEi7peNT988YEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&oh=00_AfzugPJKDXDNPZjIkHv90FlXR-tRbkBUPIh0HABNT0UElA&oe=69B93C65",
+            "isSponsored": false
+          },
+          {
+            "id": "3829921628151835579",
+            "shortCode": "DUmnW3Tk2u7",
+            "url": "https://www.instagram.com/p/DUmnW3Tk2u7/",
+            "caption": "你一定很好奇、49天在裡面幹嘛？\n#玄天上帝 #廟會 #道教 #我要上推薦 #台灣景點",
+            "type": "Video",
+            "timestamp": "2026-02-11T03:58:07.000Z",
+            "likesCount": 3853,
+            "commentsCount": 26,
+            "hashtags": [
+              "玄天上帝",
+              "廟會",
+              "道教",
+              "我要上推薦",
+              "台灣景點"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/628925881_756478037101044_752666533304491026_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=bCI7xBffTPwQ7kNvwEyccx8&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfyUKPlmiRuNPQJhZGzCujIM3HWJGR-oQIaArE7Jr6hXqQ&oe=69B926BA&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t16/f2/m69/AQMbOBmdYd6MRV4KHmxc5Eq2ZAwKWBbYJ_wbHfp3_0tZXy2NdjBSmD522fNWfSA8t7j_qnc-7qhELpXbjW2t1kiP.mp4?strext=1&_nc_cat=107&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=gwK3DQTlOOkQ7kNvwE3mfY9&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTc4NTE1MzIxMTg2Mjk0NzYsImFzc2V0X2FnZV9kYXlzIjoyOSwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjI4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=7f32791a81a62c74&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HSF92aUNYREVjR2lPeDhGQU1hZHlvS3U4VTQwYnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyLzA2NDg0RDUyNDk0RjUyNUI3MDdENjMzNTQ3OEREODk0X2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbI8YTq9ve1PxUCKAJDMywXQDxEGJN0vGoYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&oh=00_Afz9I-oQvYisgySZqG3x90qelvR2KalHbIhYHlbXYxHNSg&oe=69B939C1",
+            "isSponsored": false
+          },
+          {
+            "id": "3827777131620049010",
+            "shortCode": "DUe_wVRk6By",
+            "url": "https://www.instagram.com/p/DUe_wVRk6By/",
+            "caption": "五營將軍2.0，關於上一部片的神蹟，必定要看！\n#玄天上帝 #廟會 #道教 #中壇元帥 #台灣景點",
+            "type": "Video",
+            "timestamp": "2026-02-08T05:00:00.000Z",
+            "likesCount": 12814,
+            "commentsCount": 41,
+            "hashtags": [
+              "玄天上帝",
+              "廟會",
+              "道教",
+              "中壇元帥",
+              "台灣景點"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/626278027_904032818944076_7045446674813106784_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=z6EMZm6oh6sQ7kNvwGzcp9M&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfxitxS-FXMngMotR0zx6Ktv4W9wdoOd8pmlps_FzeqPhg&oe=69B94AC9&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t16/f2/m69/AQPteEWjNHo5uEZNtMVTdxFYgkDXoAcpGKvaRbVsTE383BTM_FsnKqI8gv88jVg83UC_fwDj352qRJLiNFB2NF8i.mp4?strext=1&_nc_cat=103&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=y9ze8qoL8zUQ7kNvwHe7Ars&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTc4NTEyMjk3NjY2Mjk0NzYsImFzc2V0X2FnZV9kYXlzIjozMiwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjM4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&vs=9690c9cb5e4c82f1&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HQUpoWVNWSUFpQ1dVRW9EQUZTVHcxdGE5STgwYnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyL0JGNEFCRTQzQjcxNkUwREY5M0IyM0UwNTYwODJDQ0E5X2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbI4dmQqua1PxUCKAJDMywXQEMRBiTdLxsYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&oh=00_AfzMN4DtFmMQF6A2nI4xpQcYsbLUUmrpjJTrBkxZd7dYXQ&oe=69B953F1",
+            "isSponsored": false
+          },
+          {
+            "id": "3816894730366836029",
+            "shortCode": "DT4VYjUk109",
+            "url": "https://www.instagram.com/p/DT4VYjUk109/",
+            "caption": "很多人不知道…元月其實…\n#玄天上帝 #廟會 #過年#民俗 #台灣景點",
+            "type": "Video",
+            "timestamp": "2026-01-24T04:39:17.000Z",
+            "likesCount": 3423,
+            "commentsCount": 24,
+            "hashtags": [
+              "玄天上帝",
+              "廟會",
+              "過年",
+              "民俗",
+              "台灣景點"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/619941019_921285793669585_3813394876344716859_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=101&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=kcpzJHY0Oi4Q7kNvwFft78m&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfwktJ1RrOAqJXyn26FB7vFmxCFIxx4uFVOPy3tig_H37A&oe=69B944C9&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t16/f2/m69/AQPO74bJXYvHKpUeZM1wCCMBnI1DP0KZe7aEF6mqToDVCYQoIPL6_roGQM6SHwmyG159MTl5jbNksYLxfjj7lfiI.mp4?strext=1&_nc_cat=110&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=zLS5RYlWKNIQ7kNvwHv7xKi&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTc4NDk2MzIxNjQ2Mjk0NzYsImFzc2V0X2FnZV9kYXlzIjo0NywidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjIzLCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=f667193b0c7fc56&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HRjVEenlRS2wtWVluQVFQQUZJemc0Wjd6SFljYnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyLzI2NDlEMTA2OTI0Nzc1RjdBOUNCMzY5MTExQjJENEI5X2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbIr9qIq4m1PxUCKAJDMywXQDeAAAAAAAAYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&oh=00_Afw4FRh5y3cQF1F3183ZXN_ssy0XowifuZXQfiEra1u-Zw&oe=69B953FE",
+            "isSponsored": false
+          },
+          {
+            "id": "3778463168562705400",
+            "shortCode": "DRvzDuPE7P4",
+            "url": "https://www.instagram.com/p/DRvzDuPE7P4/",
+            "caption": "玄天上帝最強狀態？川叔說：批髮就是那個瞬間！\n#玄天上帝 #道教 #廟會 #民俗文化 #民俗 #我要上推薦",
+            "type": "Video",
+            "timestamp": "2025-12-02T03:59:19.000Z",
+            "likesCount": 11556,
+            "commentsCount": 98,
+            "hashtags": [
+              "玄天上帝",
+              "道教",
+              "廟會",
+              "民俗文化",
+              "民俗",
+              "我要上推薦"
+            ],
+            "imageUrl": "https://scontent-det1-1.cdninstagram.com/v/t51.71878-15/586648231_949250618262330_5714259039404970171_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2QH-fj5xE9Ir_wWvan2wxqRR5IP_3sijj2x31v15aXeN74lpm7WXMFReVTsNRWMIDA4&_nc_ohc=bEBLLRok5MEQ7kNvwFWY96c&_nc_gid=ynkzDG6PPigqfFCC9NlprA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfyNwKmIBOKFParKhOyyHKQhAc_XH-4DHqFyPIcT2BqByw&oe=69B9560A&_nc_sid=8b3546",
+            "videoUrl": "https://scontent-det1-1.cdninstagram.com/o1/v/t2/f2/m86/AQNTRcMWghYdxZAJ9dENsS0sIL5cnIks2gqy_0DDFKx0wF_TfeDlt2jccNcRKbxArgvi7B04Uhwj9WoFpYCPweY2Q7Vnfm7eBy_NgOk.mp4?_nc_cat=111&_nc_sid=5e9851&_nc_ht=scontent-det1-1.cdninstagram.com&_nc_ohc=CO_NET13jEUQ7kNvwFjgepC&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTM0MTA3MzY0NzI0NDU4NCwiYXNzZXRfYWdlX2RheXMiOjEwMCwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjM2LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ynkzDG6PPigqfFCC9NlprA&_nc_ss=1a&_nc_zt=28&vs=eaa8d06aa3469546&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC9CNTRBNjZERjNCOThCQzg1OTFGRjg5MzhEODNGMkFCMV92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HR3RHS1NQc1VwYkJrWFVHQURIWk9lTGliTUJlYnN0VEFRQUYVAgLIARIAKAAYABsCiAd1c2Vfb2lsATEScHJvZ3Jlc3NpdmVfcmVjaXBlATEVAAAm0NTkpeHs4QQVAigCQzMsF0BCGZmZmZmaGBJkYXNoX2Jhc2VsaW5lXzFfdjERAHX-B2XmnQEA&oh=00_Afw3N9I3G46VOhrrMgouRNfVkjJZQhAwb7GQSWhGWno4QQ&oe=69B536D8",
+            "isSponsored": false
+          }
+        ],
+        "scrapedAt": "2026-03-13T01:53:30.409Z"
+      },
+      "facebook": null
+    }
+  }
+}

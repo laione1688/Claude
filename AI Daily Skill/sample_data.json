@@ -1,0 +1,29 @@
+{
+  "date": "2026-01-23",
+  "news": [
+    {
+      "title": "Claude Opus 4.5 发布，AI 能力再次突破",
+      "url": "https://example.com/news/claude-opus-4-5",
+      "summary": "Anthropic 发布了最新的 Claude Opus 4.5 模型，在推理和编码能力上有显著提升。",
+      "category": "模型发布",
+      "tags": ["Claude", "大模型", "Anthropic"],
+      "source": "Anthropic 官方博客"
+    },
+    {
+      "title": "OpenAI 推出新的视觉理解功能",
+      "url": "https://example.com/news/openai-vision",
+      "summary": "GPT-4 Vision 增强了对复杂图像的理解能力，可以处理多页文档和图表。",
+      "category": "技术更新",
+      "tags": ["OpenAI", "GPT-4", "视觉AI"],
+      "source": "TechCrunch"
+    },
+    {
+      "title": "AI 代码助手市场竞争加剧",
+      "url": "https://example.com/news/ai-coding-tools",
+      "summary": "GitHub Copilot、Cursor 和 Claude Code 等工具在开发者市场展开激烈竞争。",
+      "category": "行业动态",
+      "tags": ["编程工具", "市场分析", "开发者工具"],
+      "source": "The Verge"
+    }
+  ]
+}

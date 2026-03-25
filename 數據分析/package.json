@@ -1,0 +1,17 @@
+{
+  "name": "數據分析",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@google-analytics/data": "^5.2.1",
+    "google-auth-library": "^10.6.1",
+    "xlsx": "^0.18.5"
+  }
+}

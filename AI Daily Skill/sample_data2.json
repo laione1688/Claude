@@ -1,0 +1,21 @@
+{
+  "date": "2026-01-24",
+  "news": [
+    {
+      "title": "Google 发布 Gemini 2.0 Ultra 版本",
+      "url": "https://example.com/news/gemini-2-ultra",
+      "summary": "Google DeepMind 推出全新 Gemini 2.0 Ultra，在多模态理解和推理能力上取得重大突破。",
+      "category": "模型发布",
+      "tags": ["Google", "Gemini", "多模态"],
+      "source": "Google Blog"
+    },
+    {
+      "title": "AI 编程助手用户数突破千万",
+      "url": "https://example.com/news/ai-coding-milestone",
+      "summary": "包括 GitHub Copilot、Cursor 在内的 AI 编程工具总用户数已超过 1000 万。",
+      "category": "行业数据",
+      "tags": ["编程工具", "市场数据", "开发者"],
+      "source": "TechInsights"
+    }
+  ]
+}

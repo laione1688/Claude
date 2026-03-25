@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-fetch": {
+      "source": "teng-lin/agent-fetch",
+      "sourceType": "github",
+      "computedHash": "9c237e9231c6009b50887321bd3e3ab602e33402e83c80c5cfdd28af47a91282"
+    },
+    "asr": {
+      "source": "marswaveai/skills",
+      "sourceType": "github",
+      "computedHash": "f159922717146af4485ac344e342dfc0e1fcf84caaa7d2ab9a2a12e8056c458c"
+    },
+    "content-parser": {
+      "source": "marswaveai/skills",
+      "sourceType": "github",
+      "computedHash": "ff062f2774a5dbb1c86f5d84b8de493847ba6fb07be9959e2bb6cf54e967ff09"
+    },
+    "explainer": {
+      "source": "marswaveai/skills",
+      "sourceType": "github",
+      "computedHash": "9b9be09751c0bb0779ad7e54c2475d3e58e8cf4fc98d448668b2e76695a35f4e"
+    },
+    "image-gen": {
+      "source": "marswaveai/skills",
+      "sourceType": "github",
+      "computedHash": "9030e530181c999a707f2bceb6809230194657dfb7ccea40a6f8f4a7ae84dcfc"
+    },
+    "listenhub": {
+      "source": "marswaveai/skills",
+      "sourceType": "github",
+      "computedHash": "b5ae17421224034ce68096f2ea73f8538944e927a88ba1fc301d7186cc43a921"
+    },
+    "podcast": {
+      "source": "marswaveai/skills",
+      "sourceType": "github",
+      "computedHash": "a610c27c7d54402297b3d3a802039cfcc8afa145ebe816893ce3cdc92a66a86c"
+    },
+    "tts": {
+      "source": "marswaveai/skills",
+      "sourceType": "github",
+      "computedHash": "0404ccc6d8a8380fb9eb0ad943a3dfa4ecfe2bc75556edc9de8e5564c4e5c940"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.DS_Store
+.obsidian/
+.playwright-mcp/
+.gstack/
+.claude/
+node_modules/
+*.env
+tokens.json
+state/

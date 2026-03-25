@@ -1,0 +1,15 @@
+{
+  "obsidian_vault_path": "/Users/laichaochang/obsidian/AI 資訊周報",
+  "output_file": "AI_Daily_News.md",
+  "mode": "append",
+  "use_date_filename": true,
+  "filename_format": "YYYY-MM-DD_AI日报.md",
+  "settings": {
+    "date_format": "%Y-%m-%d",
+    "separator": "\n\n---\n\n",
+    "auto_tags": true,
+    "include_statistics": true,
+    "auto_rename_on_append": true
+  },
+  "description": "AI 资讯日报配置文件 - 文件名使用日期格式，追加时自动更新为最新日期"
+}

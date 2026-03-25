@@ -1,0 +1,55 @@
+{
+  "oauth2": {
+    "client_id": "cHIwT3J0M0RtcFpMRnpyUEZtQkM6MTpjaQ",
+    "client_secret": "7-2qQ9_ewdCyjIqhzwxxChHTj_9wb-RicpYxm5FnETpiVdfqDq",
+    "redirect_uri": "http://127.0.0.1:3000/callback",
+    "scopes": ["bookmark.read", "tweet.read", "users.read", "offline.access"]
+  },
+  "cookies": {
+    "auth_token": "89082268a26daddb930110cb60551edb39745b13",
+    "ct0": "5ab604d0157c65bf316b7378a651b91ea7c379aafe9858c2f6bb106f602550283c924c8ac8ecf9d8e51260cf18167d68f0bf1ddc4c8385acd296b13420d13a21eb50d4fe99d4325363cb07a03191abe3"
+  },
+  "schedule": {
+    "hour": 8,
+    "minute": 0
+  },
+  "categories": {
+    "tech_learning": {
+      "keywords": [
+        "AI", "LLM", "程式", "code", "tutorial", "教程", "學習", "GitHub", "開源", "工程", "架構", "系統設計",
+        "model", "agent", "prompt", "python", "docker", "開發", "技術",
+        "gpt", "claude", "gemini", "llama", "mistral", "deepseek", "qwen",
+        "machine learning", "deep learning", "neural", "transformer", "fine-tune", "rag",
+        "embedding", "vector", "typescript", "javascript", "rust", "golang",
+        "演算法", "算法", "資料", "dataset", "inference", "training", "deployment",
+        "framework", "library", "database", "backend", "frontend", "serverless",
+        "kubernetes", "microservice", "automation", "workflow", "pipeline"
+      ],
+      "convert": true,
+      "description": "技術學習、AI、程式相關"
+    },
+    "tools": {
+      "keywords": [
+        "tool", "app", "launch", "產品", "工具", "發布", "新功能", "API", "plugin", "extension",
+        "saas", "platform", "release", "open source", "open-source", "v1.", "v2.", "v3."
+      ],
+      "convert": true,
+      "description": "工具、產品、App 發布"
+    },
+    "news": {
+      "keywords": ["breaking", "新聞", "事件", "最新", "今日", "聲明", "公告"],
+      "convert": false,
+      "description": "新聞、時事（不轉換）"
+    },
+    "entertainment": {
+      "keywords": [],
+      "convert": false,
+      "description": "娛樂、梗圖（不轉換）"
+    }
+  },
+  "obsidian": {
+    "vault_path": "/Users/laichaochang/Library/Mobile Documents/com~apple~CloudDocs/OrbitOS-Second-Brain",
+    "inbox_path": "40_知识库/X上的大佬",
+    "index_path": "40_知识库/X上的大佬/_index"
+  }
+}

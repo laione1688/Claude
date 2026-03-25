@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.pai.x-bookmark-sync</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/laichaochang/.bun/bin/bun</string>
+        <string>/Users/laichaochang/Documents/Claude/X-Skills/x-bookmark-sync/main.ts</string>
+    </array>
+
+    <!-- 每天早上 8:00 執行 -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>8</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/x-bookmark-sync.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/tmp/x-bookmark-sync.error.log</string>
+
+    <!-- 確保在用戶登入後執行 -->
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

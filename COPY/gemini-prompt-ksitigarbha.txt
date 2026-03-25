@@ -1,0 +1,108 @@
+========================================
+地藏王菩薩香供養插圖 - Gemini 生成提示詞
+========================================
+
+【英文版本 - English Prompt】
+(建議使用，Gemini 對英文理解更精確)
+
+Create a vertical format (2:3 ratio) spiritual illustration for a Buddhist incense offering ceremony featuring Ksitigarbha Bodhisattva (地藏王菩薩):
+
+COMPOSITION:
+- Upper third: Ksitigarbha Bodhisattva seated in meditation on a lotus throne, wearing traditional monk robes in deep earth tones, holding a wish-fulfilling jewel in left hand, right hand in protection gesture, serene compassionate expression, golden halo behind head, khakkhara staff beside
+- Middle third: Graceful incense smoke rising upward, transforming into delicate lotus petals, ethereal and flowing, particles of light within the smoke
+- Lower third: Ornate bronze incense burner with traditional Chinese patterns, lotus flowers emerging from murky water at bottom corners, subtle temple atmosphere
+
+COLOR PALETTE:
+- Deep earth browns (#8B4513), warm amber (#FFBF00), golden light (#FFD700)
+- Royal purple (#6B4B8A) for lotus petals
+- Soft cream highlights (#FFF8DC)
+- Gradient from darker earth tones at bottom to warm golden glow at top
+
+STYLE:
+- Traditional Chinese Buddhist art meets modern elegant design
+- Solemn yet hopeful atmosphere
+- Warm temple lighting with soft rays of amber light
+- Balanced composition with negative space
+- Subtle traditional cloud patterns (ruyi clouds) in background
+- Four lotus buds in corners representing transformation
+
+MOOD:
+- Compassionate, serene, transformative
+- Sacred and reverent
+- Balance between solemnity and hope
+
+TEXT SPACE:
+- Leave space at top center for Chinese title "地藏王菩薩香供養"
+- Leave space for subtitle "承接困境的本願啟行"
+
+Quality: highly detailed, spiritual art, professional illustration, warm lighting, depth of field, traditional Buddhist iconography
+
+
+========================================
+
+【中文版本 - Chinese Prompt】
+(備用選項)
+
+創作一幅垂直格式（2:3比例）的佛教靈性插圖，主題為地藏王菩薩香供養法會：
+
+構圖設計：
+- 上方三分之一：地藏王菩薩端坐蓮花座上，身穿深沉大地色調的僧袍，左手持如意寶珠，右手施無畏印，面容慈悲安詳，頭後有金色光暈，身旁有錫杖
+- 中間三分之一：優雅的香煙裊裊上升，逐漸化為精緻的蓮花花瓣，飄渺流動，煙霧中有光粒子
+- 下方三分之一：精美的青銅香爐，刻有傳統中式紋樣，底部角落有蓮花從污泥中綻放，寺廟氛圍
+
+色彩配置：
+- 深褐色大地色調、溫暖琥珀色、金色光芒
+- 皇家紫色的蓮花花瓣
+- 柔和乳白色高光
+- 從底部深色到頂部溫暖金光的漸層
+
+風格：
+- 傳統中國佛教藝術結合現代優雅設計
+- 莊嚴而充滿希望的氛圍
+- 溫暖的寺廟光線，柔和的琥珀色光束
+- 平衡構圖，留白適當
+- 背景有細膩的如意雲紋
+- 四個角落有蓮花苞，象徵轉化
+
+氛圍：
+- 慈悲、寧靜、轉化
+- 神聖而恭敬
+- 莊重與希望的平衡
+
+文字空間：
+- 在頂部中央留白處預留「地藏王菩薩香供養」標題空間
+- 預留「承接困境的本願啟行」副標題空間
+
+品質要求：高度細節、靈性藝術、專業插圖、溫暖光線、景深效果、傳統佛教圖像學
+
+
+========================================
+
+【使用建議】
+
+1. 前往 Google Gemini (gemini.google.com)
+2. 複製上方英文提示詞
+3. 貼上並送出
+4. 如果結果不理想，可以追加指令：
+   - "Make it more solemn and traditional"（更莊重傳統）
+   - "Add more golden light"（增加更多金色光芒）
+   - "Make the lotus flowers more prominent"（讓蓮花更明顯）
+   - "Adjust to warmer color tone"（調整為更溫暖的色調）
+
+5. 生成後，可使用以下工具加上中文文字：
+   - Canva（線上設計工具）
+   - Photoshop
+   - Figma
+   - 美圖秀秀
+
+========================================
+
+【替代方案】
+
+如果 Gemini 效果不理想，也可以嘗試：
+- Midjourney (需訂閱)
+- DALL-E 3 (透過 ChatGPT Plus)
+- Adobe Firefly
+- Leonardo.ai
+
+========================================

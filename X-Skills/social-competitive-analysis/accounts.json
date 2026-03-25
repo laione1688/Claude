@@ -1,0 +1,170 @@
+{
+  "_comment": "三平台競品帳號清單 - 由 laione 填寫",
+  "_instructions": {
+    "tiktok": "填入 TikTok 用戶名（不含 @），例如 'bbcnews'",
+    "instagram": "填入 Instagram 用戶名（不含 @），例如 'natgeo'",
+    "facebook": "填入完整的 Facebook 粉專 URL，例如 'https://www.facebook.com/BBCNews'"
+  },
+  "competitors": [
+    {
+      "name": "ytower_cooking",
+      "tiktok": "",
+      "instagram": "ytower_cooking",
+      "facebook": "",
+      "_stats": "被收藏 13 次 [instagram]"
+    },
+    {
+      "name": "chia4.6",
+      "tiktok": "chia4.6",
+      "instagram": "chia4.6",
+      "facebook": "",
+      "_stats": "被收藏 12 次 [tiktok+instagram]"
+    },
+    {
+      "name": "marcohu1216",
+      "tiktok": "",
+      "instagram": "marcohu1216",
+      "facebook": "",
+      "_stats": "被收藏 11 次 [instagram]"
+    },
+    {
+      "name": "relax_aromatic_yen",
+      "tiktok": "",
+      "instagram": "relax_aromatic_yen",
+      "facebook": "",
+      "_stats": "被收藏 9 次 [instagram]"
+    },
+    {
+      "name": "temple_c.lab",
+      "tiktok": "",
+      "instagram": "temple_c.lab",
+      "facebook": "",
+      "_stats": "被收藏 9 次 [instagram]"
+    },
+    {
+      "name": "cs_168",
+      "tiktok": "",
+      "instagram": "cs_168",
+      "facebook": "",
+      "_stats": "被收藏 9 次 [instagram]"
+    },
+    {
+      "name": "chuan.buddha",
+      "tiktok": "chuan.buddha",
+      "instagram": "chuan.buddha",
+      "facebook": "",
+      "_stats": "被收藏 8 次 [tiktok+instagram]"
+    },
+    {
+      "name": "yo.yuanbo",
+      "tiktok": "yo.yuanbo",
+      "instagram": "yo.yuanbo",
+      "facebook": "",
+      "_stats": "被收藏 8 次 [tiktok+instagram]"
+    },
+    {
+      "name": "life.cture",
+      "tiktok": "",
+      "instagram": "life.cture",
+      "facebook": "",
+      "_stats": "被收藏 8 次 [instagram]"
+    },
+    {
+      "name": "kai__xing",
+      "tiktok": "",
+      "instagram": "kai__xing",
+      "facebook": "",
+      "_stats": "被收藏 8 次 [instagram]"
+    },
+    {
+      "name": "bao__0409",
+      "tiktok": "",
+      "instagram": "bao__0409",
+      "facebook": "",
+      "_stats": "被收藏 8 次 [instagram]"
+    },
+    {
+      "name": "jillqqq",
+      "tiktok": "",
+      "instagram": "jillqqq",
+      "facebook": "",
+      "_stats": "被收藏 8 次 [instagram]"
+    },
+    {
+      "name": "luoyu.taoism",
+      "tiktok": "luoyu.taoism",
+      "instagram": "luoyu.taoism",
+      "facebook": "",
+      "_stats": "被收藏 7 次 [tiktok+instagram]"
+    },
+    {
+      "name": "dphsu95",
+      "tiktok": "",
+      "instagram": "dphsu95",
+      "facebook": "",
+      "_stats": "被收藏 7 次 [instagram]"
+    },
+    {
+      "name": "weare_900d",
+      "tiktok": "",
+      "instagram": "weare_900d",
+      "facebook": "",
+      "_stats": "被收藏 7 次 [instagram]"
+    },
+    {
+      "name": "qiuung",
+      "tiktok": "",
+      "instagram": "qiuung",
+      "facebook": "",
+      "_stats": "被收藏 7 次 [instagram]"
+    },
+    {
+      "name": "taco0912011933",
+      "tiktok": "taco0912011933",
+      "instagram": "",
+      "facebook": "",
+      "_stats": "被收藏 6 次 [tiktok]"
+    },
+    {
+      "name": "changdaozi",
+      "tiktok": "changdaozi",
+      "instagram": "",
+      "facebook": "",
+      "_stats": "被收藏 6 次 [tiktok]"
+    },
+    {
+      "name": "g67899",
+      "tiktok": "g67899",
+      "instagram": "",
+      "facebook": "",
+      "_stats": "被收藏 6 次 [tiktok]"
+    },
+    {
+      "name": "goldwork88",
+      "tiktok": "goldwork88",
+      "instagram": "",
+      "facebook": "",
+      "_stats": "被收藏 6 次 [tiktok]"
+    },
+    {
+      "name": "win77707.70",
+      "tiktok": "",
+      "instagram": "win77707.70",
+      "facebook": "",
+      "_stats": "手動新增"
+    }
+  ],
+  "myAccount": {
+    "name": "明心福旺閣",
+    "tiktok": "",
+    "instagram": "me1314888",
+    "facebook": "",
+    "positioning": "明心福旺閣｜台灣民俗信仰生活帳號（三旺文創）。主題：香供養紀實、擲杯記錄、民俗節慶知識解說、供養哲學（信仰陪伴而非靈驗奇蹟）。受眾：30-45歲在人生轉折期、想讓生活穩定的族群。核心切角：信仰陪伴感，不做玄學命理靈驗帳號。一句話：用台灣民俗信仰，陪人把日子過穩。"
+  },
+  "settings": {
+    "maxPostsPerPlatform": 30,
+    "daysLookback": 30
+  },
+  "_generated": "2026-02-28T22:30:45.963Z",
+  "_source": "parse-saves.ts（從 TikTok/IG 收藏資料自動生成）"
+}
