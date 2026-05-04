@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEO 辦公室 — 明心福旺閣</title>
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --surface: #1a1a1a;
+    --surface-2: #242424;
+    --border: #333;
+    --text: #e8e8e8;
+    --text-dim: #888;
+    --accent: #c9a55a;
+    --accent-dim: #8a7340;
+    --green: #4ade80;
+    --blue: #60a5fa;
+    --orange: #fb923c;
+    --red: #f87171;
+    --purple: #a78bfa;
+    --pink: #f472b6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 2rem 2rem;
+  }
+
+  /* Nav */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+
+  .nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .nav a:hover { color: var(--text); background: var(--surface); }
+  .nav a.active { color: var(--accent); border-color: var(--accent-dim); background: var(--surface); }
+  .nav .nav-sep { color: var(--border); font-size: 0.7rem; margin: 0 0.25rem; }
+
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .header p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+  }
+
+  /* Command Cards */
+  .commands {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cmd-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cmd-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+
+  .cmd-card:nth-child(1)::before { background: var(--accent); }
+  .cmd-card:nth-child(2)::before { background: var(--blue); }
+  .cmd-card:nth-child(3)::before { background: var(--purple); }
+  .cmd-card:nth-child(4)::before { background: var(--green); }
+
+  .cmd-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201, 165, 90, 0.1);
+  }
+
+  .cmd-card .copy-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--surface-2);
+  }
+
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    border-radius: 6px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-family: inherit;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .copy-btn:hover {
+    border-color: var(--accent);
+    color: var(--text);
+    background: var(--surface);
+  }
+
+  .copy-btn.copied {
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  .copy-btn .icon { font-size: 0.8rem; }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--surface);
+    border: 1px solid var(--green);
+    color: var(--green);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    z-index: 999;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .cmd-card .cmd-name {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .cmd-card:nth-child(1) .cmd-name { color: var(--accent); }
+  .cmd-card:nth-child(2) .cmd-name { color: var(--blue); }
+  .cmd-card:nth-child(3) .cmd-name { color: var(--purple); }
+  .cmd-card:nth-child(4) .cmd-name { color: var(--green); }
+
+  .cmd-card .cmd-desc {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .cmd-triggers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .trigger-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 100px;
+    background: var(--surface-2);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
+
+  /* Pipeline */
+  .pipeline-section {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+  }
+
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .pipeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    right: 2%;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent), var(--orange), var(--blue), var(--purple), var(--green), var(--pink));
+    z-index: 0;
+    transform: translateY(-50%);
+  }
+
+  .phase {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 0.5rem;
+  }
+
+  .phase-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 auto 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    border: 2px solid var(--border);
+    background: var(--bg);
+    transition: all 0.3s ease;
+  }
+
+  .phase:hover .phase-dot {
+    transform: scale(1.15);
+    border-color: var(--accent);
+  }
+
+  .phase:nth-child(1) .phase-dot { border-color: var(--accent); }
+  .phase:nth-child(2) .phase-dot { border-color: var(--orange); }
+  .phase:nth-child(3) .phase-dot { border-color: var(--blue); }
+  .phase:nth-child(4) .phase-dot { border-color: var(--purple); }
+  .phase:nth-child(5) .phase-dot { border-color: var(--green); }
+  .phase:nth-child(6) .phase-dot { border-color: var(--pink); }
+
+  .phase-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .phase:nth-child(1) .phase-name { color: var(--accent); }
+  .phase:nth-child(2) .phase-name { color: var(--orange); }
+  .phase:nth-child(3) .phase-name { color: var(--blue); }
+  .phase:nth-child(4) .phase-name { color: var(--purple); }
+  .phase:nth-child(5) .phase-name { color: var(--green); }
+  .phase:nth-child(6) .phase-name { color: var(--pink); }
+
+  .phase-zh {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+  }
+
+  .phase-skills {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .phase-skills code {
+    display: inline-block;
+    background: var(--surface);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    margin: 0.1rem;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.6rem;
+  }
+
+  /* Skill Map */
+  .skill-map {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .skill-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.15s ease;
+    cursor: default;
+  }
+
+  .skill-item:hover {
+    border-color: var(--accent-dim);
+    background: var(--surface-2);
+  }
+
+  .skill-item .skill-name {
+    font-family: 'SF Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .skill-item .skill-desc {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .skill-item .skill-copy {
+    display: inline-block;
+    margin-top: 0.35rem;
+    margin-left: 0.35rem;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    border-radius: 4px;
+    padding: 0.1rem 0.35rem;
+    cursor: pointer;
+    font-size: 0.6rem;
+    font-family: inherit;
+    transition: all 0.15s ease;
+    vertical-align: middle;
+  }
+
+  .skill-item .skill-copy:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  .skill-item .skill-copy.copied {
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  .phase-tag {
+    display: inline-block;
+    font-size: 0.55rem;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    margin-top: 0.35rem;
+    font-weight: 500;
+  }
+
+  .phase-tag.think { background: rgba(201,165,90,0.15); color: var(--accent); }
+  .phase-tag.plan { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .phase-tag.build { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .phase-tag.review { background: rgba(167,139,250,0.15); color: var(--purple); }
+  .phase-tag.publish { background: rgba(74,222,128,0.15); color: var(--green); }
+  .phase-tag.analyze { background: rgba(244,114,182,0.15); color: var(--pink); }
+
+  /* Published Articles */
+  .published {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+
+  .pub-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .pub-table th {
+    text-align: left;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pub-table td {
+    font-size: 0.8rem;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--surface-2);
+  }
+
+  .pub-table tr:hover td {
+    background: var(--surface);
+  }
+
+  .status-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-right: 0.35rem;
+  }
+
+  .pub-link {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 0.7rem;
+  }
+
+  .pub-link:hover { text-decoration: underline; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    border-top: 1px solid var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer kbd {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.15rem 0.4rem;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.65rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .commands { grid-template-columns: repeat(2, 1fr); }
+    .pipeline { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .pipeline::before { display: none; }
+    body { padding: 1rem; }
+  }
+
+  /* Detail Panel */
+  .detail-panel {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    animation: slideDown 0.2s ease;
+  }
+
+  .detail-panel.active { display: block; }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .detail-panel h3 {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .detail-panel .close-btn {
+    float: right;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    border-radius: 6px;
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.75rem;
+  }
+
+  .detail-panel .close-btn:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.75rem;
+  }
+
+  .detail-table td {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--surface-2);
+    vertical-align: top;
+  }
+
+  .detail-table td:first-child {
+    color: var(--text-dim);
+    width: 30%;
+    font-size: 0.75rem;
+  }
+
+  .detail-table code {
+    font-family: 'SF Mono', monospace;
+    font-size: 0.75rem;
+    background: var(--surface-2);
+    padding: 0.15rem 0.35rem;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="dashboard.html" class="active">指揮台</a>
+  <span class="nav-sep">|</span>
+  <a href="daily-planner.html">今日規劃</a>
+  <span class="nav-sep">|</span>
+  <a href="daily-report.html">每日報表</a>
+  <span class="nav-sep">|</span>
+  <a href="monthly-report.html">月報</a>
+  <span class="nav-sep">|</span>
+  <a href="system-health.html">系統健康</a>
+</nav>
+
+<div class="header">
+  <h1>CEO 辦公室</h1>
+  <p>明心福旺閣 — 內容與廣告營運統籌中心</p>
+</div>
+
+<!-- Command Cards -->
+<div class="commands">
+  <div class="cmd-card" onclick="toggleDetail('ceo')">
+    <div class="cmd-name">/ceo</div>
+    <div class="cmd-desc">主入口，自動判斷你要什麼，路由到對應流程</div>
+    <div class="cmd-triggers">
+      <span class="trigger-tag">CEO</span>
+      <span class="trigger-tag">直接描述需求</span>
+    </div>
+    <div class="copy-row">
+      <button class="copy-btn" onclick="event.stopPropagation(); copyCmd('/ceo', this)"><span class="icon">📋</span> 複製指令</button>
+      <button class="copy-btn" onclick="event.stopPropagation(); copyCmd('現在該做什麼', this)"><span class="icon">💬</span> 複製中文</button>
+    </div>
+  </div>
+  <div class="cmd-card" onclick="toggleDetail('status')">
+    <div class="cmd-name">/ceo-status</div>
+    <div class="cmd-desc">儀表板 — 一覽所有進行中的工作狀態</div>
+    <div class="cmd-triggers">
+      <span class="trigger-tag">現在該做什麼</span>
+      <span class="trigger-tag">進度</span>
+      <span class="trigger-tag">總覽</span>
+    </div>
+    <div class="copy-row">
+      <button class="copy-btn" onclick="event.stopPropagation(); copyCmd('/ceo-status', this)"><span class="icon">📋</span> 複製指令</button>
+      <button class="copy-btn" onclick="event.stopPropagation(); copyCmd('進度總覽', this)"><span class="icon">💬</span> 複製中文</button>
+    </div>
+  </div>
+  <div class="cmd-card" onclick="toggleDetail('review')">
+    <div class="cmd-name">/ceo-review</div>
+    <div class="cmd-desc">內容審查 — 從選題到成稿的品質把關</div>
+    <div class="cmd-triggers">
+      <span class="trigger-tag">幫我看看</span>
+      <span class="trigger-tag">審稿</span>
+      <span class="trigger-tag">評估</span>
+    </div>
+    <div class="copy-row">
+      <button class="copy-btn" onclick="event.stopPropagation(); copyCmd('/ceo-review', this)"><span class="icon">📋</span> 複製指令</button>
+      <button class="copy-btn" onclick="event.stopPropagation(); copyCmd('幫我審稿', this)"><span class="icon">💬</span> 複製中文</button>
+    </div>
+  </div>
+  <div class="cmd-card" onclick="toggleDetail('publish')">
+    <div class="cmd-name">/ceo-publish</div>
+    <div class="cmd-desc">發佈 SOP — 四步標準流程自動執行</div>
+    <div class="cmd-triggers">
+      <span class="trigger-tag">已發佈</span>
+      <span class="trigger-tag">已上線</span>
+      <span class="trigger-tag">+ 網址</span>
+    </div>
+    <div class="copy-row">
+      <button class="copy-btn" onclick="event.stopPropagation(); copyCmd('/ceo-publish', this)"><span class="icon">📋</span> 複製指令</button>
+      <button class="copy-btn" onclick="event.stopPropagation(); copyCmd('跑發佈 SOP', this)"><span class="icon">💬</span> 複製中文</button>
+    </div>
+  </div>
+</div>
+
+<!-- Detail Panels -->
+<div id="detail-ceo" class="detail-panel">
+  <button class="close-btn" onclick="closeDetail('ceo')">關閉</button>
+  <h3>/ceo — 智能路由</h3>
+  <p style="font-size:0.8rem; color:var(--text-dim); margin-bottom:1rem;">根據你的訊息自動判斷階段，調度對應 skill：</p>
+  <table class="detail-table">
+    <tr><td>發佈關鍵字 / 短網址</td><td>&#8594; <code>/ceo-publish</code></td></tr>
+    <tr><td>「進度」「現在該做什麼」</td><td>&#8594; <code>/ceo-status</code></td></tr>
+    <tr><td>「幫我看看」「審稿」</td><td>&#8594; <code>/ceo-review</code></td></tr>
+    <tr><td>「選題」「靈感」「寫什麼」</td><td>&#8594; Phase 1 Think skills</td></tr>
+    <tr><td>「寫文章」「小紅書」「推文」</td><td>&#8594; Phase 3 Build skills</td></tr>
+    <tr><td>「廣告」「數據」「分析」</td><td>&#8594; Phase 6 Analyze skills</td></tr>
+  </table>
+</div>
+
+<div id="detail-status" class="detail-panel">
+  <button class="close-btn" onclick="closeDetail('status')">關閉</button>
+  <h3>/ceo-status — 儀表板</h3>
+  <p style="font-size:0.8rem; color:var(--text-dim); margin-bottom:1rem;">掃描四個資料來源，輸出營運總覽：</p>
+  <table class="detail-table">
+    <tr><td>Obsidian 02-制作中</td><td>掃描民俗、紀實、漫畫、照見系所有制作中的檔案</td></tr>
+    <tr><td>TickTick 待辦</td><td>讀取 <code>pai-followup</code> tag 的未完成任務</td></tr>
+    <tr><td>近期發佈記錄</td><td>最近 5 篇已發佈文章</td></tr>
+    <tr><td>本月主舞台</td><td>根據主舞台邏輯提醒當月主推產品線</td></tr>
+    <tr><td>建議下一步</td><td>根據以上狀態，建議 laione 現在可以做什麼</td></tr>
+  </table>
+</div>
+
+<div id="detail-review" class="detail-panel">
+  <button class="close-btn" onclick="closeDetail('review')">關閉</button>
+  <h3>/ceo-review — 三層審稿</h3>
+  <table class="detail-table">
+    <tr><td>Layer 1: 風格合規</td><td>中英文空格、YAML frontmatter、品牌語感 &#8594; <code>grammar-check</code></td></tr>
+    <tr><td>Layer 2: 內容品質</td><td>資訊準確性、敘事結構、讀者價值 &#8594; <code>writing-style ~分析</code></td></tr>
+    <tr><td>Layer 3: SEO 就緒</td><td>Keywords、Description、配圖 &#8594; <code>SeoKeywords</code></td></tr>
+    <tr><td colspan="2" style="padding-top:0.75rem; color:var(--text-dim); font-size:0.75rem;">也支援：選題評估、大綱審查、小紅書評審（<code>xhs-advisor</code>）、X 內容評估</td></tr>
+  </table>
+</div>
+
+<div id="detail-publish" class="detail-panel">
+  <button class="close-btn" onclick="closeDetail('publish')">關閉</button>
+  <h3>/ceo-publish — 四步 SOP</h3>
+  <table class="detail-table">
+    <tr><td>Step 1</td><td>Obsidian 搬檔（02-制作中 &#8594; 03-已發布）+ 更新 frontmatter URL</td></tr>
+    <tr><td>Step 2</td><td>Google Calendar 新增全天事件（明心團隊日曆）</td></tr>
+    <tr><td>Step 3</td><td>Notion PO文排程 新增記錄</td></tr>
+    <tr><td>Step 4</td><td>Notion 內容資料庫（民俗 &#8594; DB_媒體內容 / 紀實 &#8594; 活動紀實）</td></tr>
+    <tr><td colspan="2" style="padding-top:0.75rem; color:var(--text-dim); font-size:0.75rem;">每步用 Level 2 Independent Read-Back 驗證</td></tr>
+  </table>
+</div>
+
+<!-- Pipeline -->
+<div class="pipeline-section">
+  <div class="section-title">營運週期 Pipeline</div>
+  <div class="pipeline">
+    <div class="phase">
+      <div class="phase-dot">💡</div>
+      <div class="phase-name">Think</div>
+      <div class="phase-zh">選題策劃</div>
+      <div class="phase-skills">
+        <code>~選題</code>
+        <code>圓桌</code>
+        <code>拆解</code>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-dot">📐</div>
+      <div class="phase-name">Plan</div>
+      <div class="phase-zh">大綱規劃</div>
+      <div class="phase-skills">
+        <code>~大綱</code>
+        <code>SEO</code>
+        <code>主舞台</code>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-dot">✍️</div>
+      <div class="phase-name">Build</div>
+      <div class="phase-zh">內容產製</div>
+      <div class="phase-skills">
+        <code>~編寫</code>
+        <code>小紅書</code>
+        <code>X</code>
+        <code>配圖</code>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-dot">🔍</div>
+      <div class="phase-name">Review</div>
+      <div class="phase-zh">審稿優化</div>
+      <div class="phase-skills">
+        <code>~改稿</code>
+        <code>智囊團</code>
+        <code>文法</code>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-dot">🚀</div>
+      <div class="phase-name">Publish</div>
+      <div class="phase-zh">發佈上線</div>
+      <div class="phase-skills">
+        <code>SOP</code>
+        <code>搬檔</code>
+        <code>Notion</code>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-dot">📊</div>
+      <div class="phase-name">Analyze</div>
+      <div class="phase-zh">數據分析</div>
+      <div class="phase-skills">
+        <code>廣告</code>
+        <code>GA4</code>
+        <code>訂單</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Skill Map -->
+<div class="skill-map">
+  <div class="section-title">Skill 地圖</div>
+  <div class="skill-grid">
+    <div class="skill-item">
+      <div class="skill-name">writing-style</div>
+      <div class="skill-desc">明心福旺閣寫作風格，完整工作流：選題～精寫</div>
+      <span class="phase-tag build">Build</span>
+      <button class="skill-copy" onclick="copyCmd('/writing-style', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">xhs-create</div>
+      <div class="skill-desc">小紅書五種筆記類型生成</div>
+      <span class="phase-tag build">Build</span>
+      <button class="skill-copy" onclick="copyCmd('/xhs-create', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">x-create</div>
+      <div class="skill-desc">X/Twitter 推文和 thread 創作</div>
+      <span class="phase-tag build">Build</span>
+      <button class="skill-copy" onclick="copyCmd('/x-create', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">xhs-advisor</div>
+      <div class="skill-desc">小紅書智囊團 5 角色評審</div>
+      <span class="phase-tag review">Review</span>
+      <button class="skill-copy" onclick="copyCmd('/xhs-advisor', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">grammar-check</div>
+      <div class="skill-desc">文法、邏輯、流暢度檢查</div>
+      <span class="phase-tag review">Review</span>
+      <button class="skill-copy" onclick="copyCmd('/grammar-check', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">SeoKeywords</div>
+      <div class="skill-desc">SEO 關鍵字生成與優化</div>
+      <span class="phase-tag plan">Plan</span>
+      <button class="skill-copy" onclick="copyCmd('/SeoKeywords', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">ContentDeconstruct</div>
+      <div class="skill-desc">爆款內容 11 維度拆解分析</div>
+      <span class="phase-tag think">Think</span>
+      <button class="skill-copy" onclick="copyCmd('/ContentDeconstruct', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">ljg-roundtable</div>
+      <div class="skill-desc">多角色結構化圓桌討論</div>
+      <span class="phase-tag think">Think</span>
+      <button class="skill-copy" onclick="copyCmd('/ljg-roundtable', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">smart-illustrator</div>
+      <div class="skill-desc">智能配圖與信息圖生成</div>
+      <span class="phase-tag build">Build</span>
+      <button class="skill-copy" onclick="copyCmd('/smart-illustrator', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">weekly-bulletin</div>
+      <div class="skill-desc">宮廟週報/通告生成器</div>
+      <span class="phase-tag build">Build</span>
+      <button class="skill-copy" onclick="copyCmd('/weekly-bulletin', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">ads / ads-meta</div>
+      <div class="skill-desc">FB/Meta 廣告全面審計</div>
+      <span class="phase-tag analyze">Analyze</span>
+      <button class="skill-copy" onclick="copyCmd('/ads-meta', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">ga4-analytics</div>
+      <div class="skill-desc">GA4 網站流量數據分析</div>
+      <span class="phase-tag analyze">Analyze</span>
+      <button class="skill-copy" onclick="copyCmd('/ga4-analytics', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">order-analysis</div>
+      <div class="skill-desc">電商訂單全方位分析</div>
+      <span class="phase-tag analyze">Analyze</span>
+      <button class="skill-copy" onclick="copyCmd('/anthropic-skills:order-analysis', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">shuwen-convert</div>
+      <div class="skill-desc">疏文批次轉換與校對</div>
+      <span class="phase-tag build">Build</span>
+      <button class="skill-copy" onclick="copyCmd('/shuwen-convert', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">baoyu-cover-image</div>
+      <div class="skill-desc">文章封面圖 5 維度生成</div>
+      <span class="phase-tag build">Build</span>
+      <button class="skill-copy" onclick="copyCmd('/baoyu-cover-image', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">order-planning</div>
+      <div class="skill-desc">年度產品主舞台判斷</div>
+      <span class="phase-tag plan">Plan</span>
+      <button class="skill-copy" onclick="copyCmd('/anthropic-skills:order-planning', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">LandingPageCro</div>
+      <div class="skill-desc">Landing Page 轉化率優化</div>
+      <span class="phase-tag analyze">Analyze</span>
+      <button class="skill-copy" onclick="copyCmd('/LandingPageCro', this)">複製</button>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">baoyu-post-to-x</div>
+      <div class="skill-desc">發布到 X/Twitter</div>
+      <span class="phase-tag publish">Publish</span>
+      <button class="skill-copy" onclick="copyCmd('/baoyu-post-to-x', this)">複製</button>
+    </div>
+  </div>
+</div>
+
+<!-- Published Articles -->
+<div class="published">
+  <div class="section-title">近期發佈記錄</div>
+  <table class="pub-table">
+    <thead>
+      <tr>
+        <th>文章</th>
+        <th>類型</th>
+        <th>發佈日</th>
+        <th>SOP</th>
+        <th>連結</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="status-dot"></span>九天玄女聖誕-官網文化推廣</td>
+        <td>民俗</td>
+        <td>2026-03-30</td>
+        <td>4/4 ✅</td>
+        <td><a class="pub-link" href="#">me1314888.com</a></td>
+      </tr>
+      <tr>
+        <td><span class="status-dot"></span>1150329 本周通告</td>
+        <td>週報</td>
+        <td>2026-03-29</td>
+        <td>4/4 ✅</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td><span class="status-dot"></span>清明節拜拜懶人包</td>
+        <td>民俗</td>
+        <td>2026-03-27</td>
+        <td>4/4 ✅</td>
+        <td><a class="pub-link" href="#">me1314888.com</a></td>
+      </tr>
+      <tr>
+        <td><span class="status-dot"></span>工作不順想升遷找對神明</td>
+        <td>民俗</td>
+        <td>2026-03-25</td>
+        <td>4/4 ✅</td>
+        <td><a class="pub-link" href="#">me1314888.com</a></td>
+      </tr>
+      <tr>
+        <td><span class="status-dot"></span>學業祈福x竹林山觀音寺</td>
+        <td>民俗</td>
+        <td>2026-03-21</td>
+        <td>4/4 ✅</td>
+        <td><a class="pub-link" href="https://me88.to/8tjruh">me88.to/8tjruh</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  在 Claude Code 中使用：<kbd>/ceo</kbd> <kbd>/ceo-status</kbd> <kbd>/ceo-review</kbd> <kbd>/ceo-publish</kbd>
+  <br><br>
+  CEO Office v1.0.0 — Powered by PAI
+</div>
+
+<div class="toast" id="toast">已複製到剪貼簿</div>
+
+<script>
+  function toggleDetail(id) {
+    const panel = document.getElementById('detail-' + id);
+    const isActive = panel.classList.contains('active');
+    document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('active'));
+    if (!isActive) {
+      panel.classList.add('active');
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  function closeDetail(id) {
+    document.getElementById('detail-' + id).classList.remove('active');
+  }
+
+  function copyCmd(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+      // Button feedback
+      const original = btn.innerHTML;
+      btn.classList.add('copied');
+      btn.innerHTML = '<span class="icon">✅</span> 已複製';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = original;
+      }, 1500);
+
+      // Toast
+      const toast = document.getElementById('toast');
+      toast.textContent = '已複製：' + text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

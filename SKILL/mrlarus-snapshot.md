@@ -1,0 +1,28 @@
+- generic [ref=e3]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]: 別錯過正在發生的新鮮事
+      - generic [ref=e10]: X 使用者總是搶先得知新消息。
+    - generic [ref=e13]:
+      - link "登入" [ref=e15] [cursor=pointer]:
+        - /url: /login
+        - generic [ref=e18]: 登入
+      - link "註冊" [ref=e20] [cursor=pointer]:
+        - /url: /i/flow/signup
+        - generic [ref=e23]: 註冊
+  - button "跳至首頁時間軸" [ref=e24] [cursor=pointer]
+  - button "跳至流行趨勢" [ref=e26] [cursor=pointer]
+  - banner [ref=e28]:
+    - generic [ref=e31]:
+      - heading "X" [level=1] [ref=e33] [cursor=pointer]:
+        - link "X" [ref=e34]:
+          - /url: /
+      - generic:
+        - navigation "主要"
+  - main [ref=e39]:
+    - generic [ref=e42]:
+      - generic "首頁時間軸" [ref=e44]:
+        - generic [ref=e45]
+        - region "對話" [ref=e62]
+      - generic "流行趨勢" [ref=e210]:
+        - generic [ref=e211]

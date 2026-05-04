@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日規劃 — CEO 辦公室</title>
+<style>
+  :root {
+    --bg: #0f0f0f; --surface: #1a1a1a; --surface-2: #242424;
+    --border: #333; --text: #e8e8e8; --text-dim: #888;
+    --accent: #c9a55a; --accent-dim: #8a7340;
+    --green: #4ade80; --blue: #60a5fa; --orange: #fb923c;
+    --red: #f87171; --purple: #a78bfa; --pink: #f472b6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 0 2rem 2rem; }
+
+  .nav { display: flex; align-items: center; justify-content: center; gap: 0.25rem; padding: 1rem 0; margin-bottom: 1rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  .nav a { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; padding: 0.4rem 1rem; border-radius: 6px; transition: all 0.15s; border: 1px solid transparent; }
+  .nav a:hover { color: var(--text); background: var(--surface); }
+  .nav a.active { color: var(--accent); border-color: var(--accent-dim); background: var(--surface); }
+  .nav .sep { color: var(--border); font-size: 0.7rem; margin: 0 0.25rem; }
+
+  .container { max-width: 900px; margin: 0 auto; }
+  .header { text-align: center; margin-bottom: 2rem; }
+  .header h1 { font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-bottom: 0.15rem; }
+  .header .sub { font-size: 1rem; color: var(--text-dim); }
+  .header .sub strong { color: var(--text); }
+
+  .stitle { font-size: 0.8rem; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin: 2rem 0 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+  .stitle .i { font-size: 1rem; }
+  .stitle:first-of-type { margin-top: 0; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+  .tl-item { position: relative; padding: 0.6rem 0; padding-left: 1.5rem; }
+  .tl-item::before { content: ''; position: absolute; left: -2rem; top: 0.85rem; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg); z-index: 1; }
+  .tl-item.now::before { border-color: var(--green); background: var(--green); box-shadow: 0 0 8px rgba(74,222,128,0.4); }
+  .tl-item.upcoming::before { border-color: var(--blue); }
+  .tl-item.alert::before { border-color: var(--red); background: var(--red); }
+  .tl-item.done::before { border-color: var(--text-dim); background: var(--text-dim); }
+  .tl-time { font-family: 'SF Mono', monospace; font-size: 0.65rem; color: var(--text-dim); margin-bottom: 0.15rem; }
+  .tl-title { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.1rem; }
+  .tl-desc { font-size: 0.7rem; color: var(--text-dim); line-height: 1.4; }
+  .tl-tag { display: inline-block; font-size: 0.55rem; padding: 0.1rem 0.4rem; border-radius: 3px; margin-top: 0.2rem; }
+  .tl-tag.cal { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .tl-tag.ads { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .tl-tag.content { background: rgba(201,165,90,0.15); color: var(--accent); }
+  .tl-tag.sop { background: rgba(74,222,128,0.15); color: var(--green); }
+  .tl-tag.deadline { background: rgba(248,113,113,0.15); color: var(--red); }
+  .tl-tag.supply { background: rgba(74,222,128,0.15); color: var(--green); }
+
+  /* Observation cards */
+  .obs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .obs { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+  .obs h3 { font-size: 0.75rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+  .obs .metric { font-size: 1.8rem; font-weight: 700; line-height: 1; margin-bottom: 0.2rem; }
+  .obs .detail { font-size: 0.7rem; color: var(--text-dim); line-height: 1.4; }
+  .obs .signal { font-size: 0.65rem; margin-top: 0.4rem; padding: 0.3rem 0.5rem; border-radius: 6px; }
+  .obs .signal.good { background: rgba(74,222,128,0.08); color: var(--green); border: 1px solid rgba(74,222,128,0.15); }
+  .obs .signal.warn { background: rgba(251,146,60,0.08); color: var(--orange); border: 1px solid rgba(251,146,60,0.15); }
+  .obs .signal.bad { background: rgba(248,113,113,0.08); color: var(--red); border: 1px solid rgba(248,113,113,0.15); }
+
+  /* Plan list */
+  .plan { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+  .plan-item { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.5rem 0; border-bottom: 1px solid var(--surface-2); }
+  .plan-item:last-child { border-bottom: none; }
+  .plan-num { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem; }
+  .plan-num.p1 { background: rgba(248,113,113,0.15); color: var(--red); }
+  .plan-num.p2 { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .plan-num.p3 { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .plan-content { flex: 1; }
+  .plan-title { font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem; }
+  .plan-why { font-size: 0.65rem; color: var(--text-dim); line-height: 1.35; }
+  .plan-action { font-size: 0.68rem; color: var(--accent); margin-top: 0.2rem; }
+
+  /* Week overview */
+  .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.4rem; }
+  .day { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem; min-height: 80px; }
+  .day.today { border-color: var(--accent); background: rgba(201,165,90,0.05); }
+  .day-label { font-size: 0.55rem; color: var(--text-dim); text-align: center; margin-bottom: 0.3rem; }
+  .day-label strong { color: var(--text); display: block; font-size: 0.9rem; }
+  .day-event { font-size: 0.5rem; padding: 0.15rem 0.3rem; border-radius: 3px; margin-bottom: 0.15rem; line-height: 1.2; }
+  .day-event.ads { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .day-event.supply { background: rgba(167,139,250,0.12); color: var(--purple); }
+  .day-event.deadline { background: rgba(248,113,113,0.12); color: var(--red); }
+  .day-event.content { background: rgba(201,165,90,0.12); color: var(--accent); }
+  .day-event.publish { background: rgba(74,222,128,0.12); color: var(--green); }
+
+  .footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.65rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+  .footer kbd { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.12rem 0.35rem; font-family: 'SF Mono', monospace; font-size: 0.6rem; }
+
+  @media (max-width: 768px) {
+    .obs-grid { grid-template-columns: 1fr; }
+    .week { grid-template-columns: repeat(3, 1fr); }
+    body { padding: 0 1rem 1rem; }
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="dashboard.html">指揮台</a><span class="sep">|</span>
+  <a href="daily-planner.html" class="active">今日規劃</a><span class="sep">|</span>
+  <a href="daily-report.html">每日報表</a><span class="sep">|</span>
+  <a href="monthly-report.html">月報</a><span class="sep">|</span>
+  <a href="system-health.html">系統健康</a>
+</nav>
+<div class="container">
+
+<div class="header">
+  <h1>今日規劃</h1>
+  <div class="sub"><strong>2026 年 4 月 19 日（週日）</strong> · <span style="font-size:0.75rem; color:var(--text-dim);">JSON snapshot 已同步（更新於 2026-04-28）· 資料截至 2026-04-19</span></div>
+</div>
+
+<!-- ===== BLOCK 1: 本週鳥瞰 ===== -->
+<div class="stitle"><span class="i">📅</span> 本週鳥瞰（4/14 ~ 4/20）</div>
+<div class="week">
+  <div class="day">
+    <div class="day-label"><strong>14</strong>二</div>
+    <div class="day-event supply">壽山巖 已完成</div>
+  </div>
+  <div class="day">
+    <div class="day-label"><strong>15</strong>三</div>
+  </div>
+  <div class="day">
+    <div class="day-label"><strong>16</strong>四</div>
+  </div>
+  <div class="day">
+    <div class="day-label"><strong>17</strong>五</div>
+  </div>
+  <div class="day">
+    <div class="day-label"><strong>18</strong>六</div>
+    <div class="day-event ads">第十一波 D+12</div>
+  </div>
+  <div class="day today">
+    <div class="day-label"><strong>19</strong>日</div>
+    <div class="day-event deadline">地藏庵 今日截止</div>
+  </div>
+  <div class="day">
+    <div class="day-label"><strong>20</strong>一</div>
+  </div>
+</div>
+
+<!-- ===== BLOCK 2: 今日行事 ===== -->
+<div class="stitle"><span class="i">🕐</span> 今日行事</div>
+<div class="timeline">
+  <div class="tl-item done">
+    <div class="tl-time">昨天</div>
+    <div class="tl-title">✅ 壽山巖觀音寺 — 4/13 香供養日已完成</div>
+    <div class="tl-desc">34 位報名 | 紀實文章待撰寫</div>
+    <span class="tl-tag supply">已完成</span>
+  </div>
+  <div class="tl-item alert">
+    <div class="tl-time">全天</div>
+    <div class="tl-title" style="color:var(--red);">🚨 新莊地藏庵 FB 第十一波 — 今日截止</div>
+    <div class="tl-desc">4/6~4/19 投放 | 預算 NT$63,000 | 香供養日 4/23 | D+13 最後一天 | 目前 30 位報名 | 今日 24:00 結單</div>
+    <span class="tl-tag deadline">截止日</span>
+  </div>
+  <div class="tl-item upcoming">
+    <div class="tl-time">4/18 數據</div>
+    <div class="tl-title">📊 菩薩10期 — 4/18 花費 $2,248 / 1 購買 / CPA $2,248</div>
+    <div class="tl-desc">7 日 CPA $509（18 購買 / $9,159），4/18 單日轉換下滑需觀察</div>
+    <span class="tl-tag ads">廣告監控</span>
+  </div>
+  <div class="tl-item done">
+    <div class="tl-time">已完成</div>
+    <div class="tl-title">南山福德宮 — 香供養日已完成（4/8）</div>
+    <div class="tl-desc">福德正神 44 位報名 | 紀實文章撰寫中</div>
+    <span class="tl-tag supply">已完成</span>
+  </div>
+</div>
+
+<!-- ===== BLOCK 3: 今日觀察 ===== -->
+<div class="stitle"><span class="i">👁️</span> 今日觀察</div>
+<div class="obs-grid">
+  <div class="obs">
+    <h3 style="color:var(--green)">✅ 壽山巖已完成</h3>
+    <div class="metric" style="color:var(--green)">34 位</div>
+    <div class="detail">4/13 香供養日已完成 | 紀實文章待撰寫</div>
+    <div class="signal good">順利完成，下一步產出紀實內容</div>
+  </div>
+  <div class="obs">
+    <h3 style="color:var(--red)">🚨 第十一波 D+13 今日截止</h3>
+    <div class="metric" style="color:var(--red)">30 位</div>
+    <div class="detail">新莊地藏庵 4/6~4/19 | 預算 NT$63,000 | 今日 24:00 結單</div>
+    <div class="signal warn">4/18 花費 $2,248 / 1 購買 | CPA $2,248（轉換下滑）</div>
+  </div>
+  <div class="obs">
+    <h3 style="color:var(--blue)">📊 最新營收</h3>
+    <div class="metric" style="color:var(--blue)">$83,300</div>
+    <div class="detail">4月累計 63 筆 | 4/15 最後一筆 2 筆 / $5,000</div>
+    <div class="signal good">累計總訂單 344 筆 / NT$567,150</div>
+  </div>
+  <div class="obs">
+    <h3 style="color:var(--green)">📱 社群數據</h3>
+    <div class="metric" style="color:var(--green)">502</div>
+    <div class="detail">FB 粉絲 502（+8 / 7日）| IG 61 粉絲（+3）| 275 篇貼文</div>
+    <div class="signal good">IG 近 7 日 5 篇新貼文 | 平均按讚 2 | FB 7日 +8</div>
+  </div>
+</div>
+
+<!-- ===== BLOCK 4: 今日規劃 ===== -->
+<div class="stitle"><span class="i">🎯</span> 今日規劃（依優先順序）</div>
+<div class="plan">
+  <div class="plan-item">
+    <div class="plan-num p1">1</div>
+    <div class="plan-content">
+      <div class="plan-title">壽山巖紀實文章撰寫</div>
+      <div class="plan-why">4/13 香供養已完成（34 位報名），紀實應盡快產出</div>
+      <div class="plan-action">→ 社群文案 + 官網紀實撰寫</div>
+    </div>
+  </div>
+  <div class="plan-item">
+    <div class="plan-num p1">2</div>
+    <div class="plan-content">
+      <div class="plan-title">第十一波廣告截止日 D+13（今日結單）</div>
+      <div class="plan-why">新莊地藏庵 4/6~4/19 | 30 位報名 | 今日 24:00 最後一天</div>
+      <div class="plan-action">→ 全力推送截止日文案，抓住最後黃金 24 小時</div>
+    </div>
+  </div>
+  <div class="plan-item">
+    <div class="plan-num p2">3</div>
+    <div class="plan-content">
+      <div class="plan-title">菩薩10期廣告觀察</div>
+      <div class="plan-why">4/18 花費 $2,248 / 1 購買 / CPA $2,248，7 日 CPA $509</div>
+      <div class="plan-action">→ 4/18 單日轉換下滑，需檢視素材與受眾疲勞</div>
+    </div>
+  </div>
+  <div class="plan-item">
+    <div class="plan-num p2">4</div>
+    <div class="plan-content">
+      <div class="plan-title">南山福德宮紀實文章</div>
+      <div class="plan-why">4/8 香供養已完成（44 位報名），紀實應盡快產出</div>
+      <div class="plan-action">→ 社群文案 + 官網紀實撰寫</div>
+    </div>
+  </div>
+  <div class="plan-item">
+    <div class="plan-num p3">5</div>
+    <div class="plan-content">
+      <div class="plan-title">竹林山紀實文章</div>
+      <div class="plan-why">4/3 香供養已完成，紀實文章應盡快產出</div>
+      <div class="plan-action">→ 繼續撰寫官網紀實</div>
+    </div>
+  </div>
+  <div class="plan-item">
+    <div class="plan-num p3">6</div>
+    <div class="plan-content">
+      <div class="plan-title">制作中內容推進</div>
+      <div class="plan-why">14 件制作中（含照見系 2 篇 + 漫畫分鏡），優先推進紀實</div>
+      <div class="plan-action">→ 壽山巖紀實 > 南山福德紀實 > 照見系 > 玄天上帝聖誕</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BLOCK 5: 本月洞察 + 行動計畫 ===== -->
+<div class="stitle"><span class="i">📊</span> 4 月洞察與行動計畫</div>
+
+<div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.25rem; margin-bottom:0.75rem;">
+  <div style="font-size:0.8rem; font-weight:600; color:var(--accent); margin-bottom:0.75rem;">本月局勢</div>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.75rem; margin-bottom:1rem;">
+    <div style="text-align:center;">
+      <div style="font-size:1.8rem; font-weight:700; color:var(--purple);">4</div>
+      <div style="font-size:0.6rem; color:var(--text-dim);">場香供養</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:1.8rem; font-weight:700; color:var(--orange);">~$63k</div>
+      <div style="font-size:0.6rem; color:var(--text-dim);">廣告預算（第十一波）</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:1.8rem; font-weight:700; color:var(--blue);">73+</div>
+      <div style="font-size:0.6rem; color:var(--text-dim);">目前已報名</div>
+    </div>
+  </div>
+
+  <!-- 4月場次時間軸 -->
+  <div style="font-size:0.7rem; font-weight:600; color:var(--text-dim); margin-bottom:0.5rem;">4 月場次排程</div>
+  <div style="display:flex; gap:0; height:28px; border-radius:6px; overflow:hidden; margin-bottom:0.75rem;">
+    <div style="flex:3; background:rgba(96,165,250,0.2); display:flex; align-items:center; justify-content:center; font-size:0.5rem; color:var(--blue); border-right:1px solid var(--bg);">竹林山 4/3</div>
+    <div style="flex:5; background:rgba(251,146,60,0.2); display:flex; align-items:center; justify-content:center; font-size:0.5rem; color:var(--orange); border-right:1px solid var(--bg);">南山福德 4/8</div>
+    <div style="flex:5; background:rgba(167,139,250,0.2); display:flex; align-items:center; justify-content:center; font-size:0.5rem; color:var(--purple); border-right:1px solid var(--bg);">壽山巖 4/13</div>
+    <div style="flex:10; background:rgba(244,114,182,0.2); display:flex; align-items:center; justify-content:center; font-size:0.5rem; color:var(--pink);">地藏庵 4/23</div>
+  </div>
+
+  <!-- 行動計畫 -->
+  <div style="font-size:0.7rem; font-weight:600; color:var(--accent); margin-bottom:0.5rem;">行動計畫</div>
+  <div style="font-size:0.75rem; line-height:1.7;">
+    <div style="margin-bottom:0.4rem; padding:0.4rem 0.6rem; background:rgba(248,113,113,0.06); border-radius:6px; border-left:3px solid var(--red);">
+      <strong>W1（4/1-6）收尾日 ✅</strong><br>
+      <span style="color:var(--text-dim); font-size:0.7rem;">✅ 南山福德宮 4/4 已截止（44 位）→ 4/8 香供養已完成<br>✅ 竹林山 4/3 已完成 → 紀實文章撰寫中<br>✅ 第十一波 4/6 已開跑<br>⚠️ 確認菩薩10期虧損受眾已暫停<br>✅ 壽山巖 4/9 已截止（34 位報名）</span>
+    </div>
+    <div style="margin-bottom:0.4rem; padding:0.4rem 0.6rem; background:rgba(251,146,60,0.06); border-radius:6px; border-left:3px solid var(--orange);">
+      <strong>W2（4/7-13）雙線作戰 ✅</strong><br>
+      <span style="color:var(--text-dim); font-size:0.7rem;">✅ 南山福德宮 4/8 香供養日已完成 → 紀實撰寫中<br>✅ 壽山巖 4/13 香供養日已完成（34 位）→ 紀實待撰寫<br>第十一波地藏庵持續投放（暖場階段 30% 預算）</span>
+    </div>
+    <div style="margin-bottom:0.4rem; padding:0.4rem 0.6rem; background:rgba(96,165,250,0.06); border-radius:6px; border-left:3px solid var(--blue);">
+      <strong>W3（4/14-20）地藏庵主力衝刺</strong><br>
+      <span style="color:var(--text-dim); font-size:0.7rem;">第十一波衝刺階段（50% 預算）<br>地藏庵 4/19 截止 → 截止倒數效應<br>壽山巖紀實文章產出 + 發佈</span>
+    </div>
+    <div style="padding:0.4rem 0.6rem; background:rgba(74,222,128,0.06); border-radius:6px; border-left:3px solid var(--green);">
+      <strong>W4（4/21-30）收尾 + 下月準備</strong><br>
+      <span style="color:var(--text-dim); font-size:0.7rem;">地藏庵 4/23 香供養日 → 紀實<br>4 月月報數據整理<br>5 月場次開賣 + 廣告素材製作<br>本月通告、照見系貼文上線</span>
+    </div>
+  </div>
+
+  <!-- 內容計畫 -->
+  <div style="font-size:0.7rem; font-weight:600; color:var(--accent); margin-top:1rem; margin-bottom:0.5rem;">4 月內容產出計畫</div>
+  <table style="font-size:0.72rem;">
+    <thead><tr><th>週</th><th>文章</th><th>類型</th><th>搭配</th></tr></thead>
+    <tbody>
+      <tr><td>W1</td><td>端午節文化推廣（選題）</td><td style="color:var(--accent)">民俗</td><td>提前佈局</td></tr>
+      <tr><td>W1</td><td>本週通告</td><td style="color:var(--blue)">週報</td><td>截止提醒</td></tr>
+      <tr><td>W2</td><td>地藏庵紀實（3/23 場）</td><td style="color:var(--green)">紀實</td><td>搭配第十一波廣告</td></tr>
+      <tr><td>W2</td><td>照見系 — 濟公篇</td><td style="color:var(--pink)">社群</td><td>IG 內容測試</td></tr>
+      <tr><td>W3</td><td>照見系 — 土地公篇</td><td style="color:var(--pink)">社群</td><td>社群互動</td></tr>
+      <tr><td>W3</td><td>壽山巖紀實</td><td style="color:var(--green)">紀實</td><td>品牌信任</td></tr>
+      <tr><td>W4</td><td>拜公媽與財運</td><td style="color:var(--accent)">民俗</td><td>母親節前導</td></tr>
+      <tr><td>W4</td><td>月底通告</td><td style="color:var(--blue)">週報</td><td>5 月預告</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== BLOCK 6: 5月規劃建議 ===== -->
+<div class="stitle"><span class="i">🔮</span> 5 月份規劃建議</div>
+
+<div style="background:rgba(96,165,250,0.04); border:1px solid rgba(96,165,250,0.2); border-radius:10px; padding:1.25rem;">
+
+  <!-- 5月場次 -->
+  <div style="font-size:0.8rem; font-weight:600; color:var(--blue); margin-bottom:0.6rem;">5 月場次（來自 Notion）</div>
+  <table style="font-size:0.72rem; margin-bottom:1rem;">
+    <thead><tr><th>日期</th><th>廟宇</th><th>主題</th><th>截止日</th><th>備註</th></tr></thead>
+    <tbody>
+      <tr><td>5/5</td><td>板橋慈后宮</td><td><span class="badge pk" style="font-size:0.55rem;">媽祖</span></td><td>5/1（五）</td><td style="color:var(--accent)">母親節前 1 天</td></tr>
+      <tr><td>5/8</td><td>南山福德宮</td><td><span class="badge o" style="font-size:0.55rem;">福德正神</span></td><td>5/4（一）</td><td>-</td></tr>
+      <tr><td>5/11</td><td>壽山巖觀音寺</td><td><span class="badge b" style="font-size:0.55rem;">觀音</span></td><td>5/7（四）</td><td>-</td></tr>
+      <tr><td>5/26</td><td>新莊地藏庵</td><td><span class="badge p" style="font-size:0.55rem;">地藏王</span></td><td>5/22（五）</td><td>-</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 節氣/節日 -->
+  <div style="font-size:0.7rem; font-weight:600; color:var(--blue); margin-bottom:0.4rem;">5 月關鍵節點</div>
+  <div style="display:flex; gap:0; height:28px; border-radius:6px; overflow:hidden; margin-bottom:0.75rem;">
+    <div style="flex:5; background:rgba(244,114,182,0.2); display:flex; align-items:center; justify-content:center; font-size:0.5rem; color:var(--pink); border-right:1px solid var(--bg);">媽祖 5/5</div>
+    <div style="flex:3; background:rgba(248,113,113,0.2); display:flex; align-items:center; justify-content:center; font-size:0.5rem; color:var(--red); border-right:1px solid var(--bg);">母親節 5/10</div>
+    <div style="flex:4; background:rgba(167,139,250,0.2); display:flex; align-items:center; justify-content:center; font-size:0.5rem; color:var(--purple); border-right:1px solid var(--bg);">觀音 5/11</div>
+    <div style="flex:8; background:rgba(96,165,250,0.2); display:flex; align-items:center; justify-content:center; font-size:0.5rem; color:var(--blue); border-right:1px solid var(--bg);">端午節 5/31</div>
+    <div style="flex:5; background:rgba(201,165,90,0.2); display:flex; align-items:center; justify-content:center; font-size:0.5rem; color:var(--accent);">地藏庵 5/26</div>
+  </div>
+
+  <!-- 建議 -->
+  <div style="font-size:0.7rem; font-weight:600; color:var(--blue); margin-bottom:0.5rem;">策略建議</div>
+  <div style="font-size:0.75rem; line-height:1.65;">
+    <div style="margin-bottom:0.5rem; padding:0.5rem 0.6rem; background:rgba(244,114,182,0.06); border-radius:6px; border-left:3px solid var(--pink);">
+      <strong>1. 母親節 × 媽祖 聯動</strong><br>
+      <span style="color:var(--text-dim); font-size:0.7rem;">5/5 媽祖香供養 + 5/10 母親節，天然行銷素材。<br>
+      → 提前 4/20 開始預熱：「為媽媽求平安」主題<br>
+      → 媽祖場次文案強調「母愛」「庇佑」，共鳴感更強<br>
+      → 考慮「母親節特別供養」套裝（幫媽媽供養＋祈福卡）</span>
+    </div>
+    <div style="margin-bottom:0.5rem; padding:0.5rem 0.6rem; background:rgba(74,222,128,0.06); border-radius:6px; border-left:3px solid var(--green);">
+      <strong>2. 端午節內容先行</strong><br>
+      <span style="color:var(--text-dim); font-size:0.7rem;">5/31 端午節（農曆五月初五），是民俗大節。<br>
+      → 4 月底開始寫「端午節拜拜懶人包」（複製清明節模式）<br>
+      → 端午節 + 地藏庵 5/26 可以聯動推廣</span>
+    </div>
+    <div style="margin-bottom:0.5rem; padding:0.5rem 0.6rem; background:rgba(251,146,60,0.06); border-radius:6px; border-left:3px solid var(--orange);">
+      <strong>3. 提升 AOV 策略</strong><br>
+      <span style="color:var(--text-dim); font-size:0.7rem;">3 月 AOV $1,556 較 2 月 $1,883 下降 17%。<br>
+      → 推出「連續供養」方案（連續 3 個月供養 9 折）<br>
+      → 5 斤裝 + 香環組合包，提高單筆金額<br>
+      → 回頭客專屬加購優惠（3 月回頭客佔 38%）</span>
+    </div>
+    <div style="padding:0.5rem 0.6rem; background:rgba(167,139,250,0.06); border-radius:6px; border-left:3px solid var(--purple);">
+      <strong>4. 廣告策略升級</strong><br>
+      <span style="color:var(--text-dim); font-size:0.7rem;">5 月 4 場密集，場次間隔短，需避免預算互搶。<br>
+      → 每場獨立 Campaign，不共用受眾<br>
+      → 準備 4 組差異化素材（每場不同視覺主題）<br>
+      → 截止效應模板化：D-4 暖場 → D-2 倒數 → D-1 最後提醒</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BLOCK 7: CEO 筆記 ===== -->
+<div class="stitle"><span class="i">📝</span> CEO 筆記（手動記錄區）</div>
+<div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1rem;">
+  <div style="font-size:0.7rem; color:var(--text-dim); margin-bottom:0.5rem;">今日重要決策、觀察、想法（在 Claude Code 中說「記一筆：xxx」自動寫入 DAILY 文件）</div>
+  <div style="border:1px dashed var(--border); border-radius:8px; padding:1.5rem; text-align:center; color:var(--text-dim); font-size:0.75rem;">
+    對話中產生的決策和觀察會記錄到<br>
+    <code style="background:var(--surface-2); padding:0.15rem 0.4rem; border-radius:3px; font-size:0.7rem;">~/.claude/skills/PAI/USER/DAILY/2026-04-19.md</code><br><br>
+    結束對話時執行 <kbd style="background:var(--surface-2); border:1px solid var(--border); border-radius:4px; padding:0.1rem 0.35rem; font-size:0.65rem;">/done</kbd> 會自動整理當日記錄
+  </div>
+</div>
+
+<div class="footer">
+  在 Claude Code 中說 <kbd>今天要做什麼</kbd> 或 <kbd>/ceo-status</kbd> 即可生成<br><br>
+  CEO Office v1.0.0 — Powered by PAI
+</div>
+
+</div>
+</body>
+</html>

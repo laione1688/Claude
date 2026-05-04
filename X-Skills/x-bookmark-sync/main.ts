@@ -32,6 +32,7 @@ interface Config {
     ct0: string
   }
   schedule: { hour: number; minute: number }
+  ignored_handles?: string[]
   categories: Record<string, {
     keywords: string[]
     convert: boolean
@@ -863,10 +864,22 @@ async function main(): Promise<void> {
     const allBookmarks = await fetchBookmarks(config)
     log(`  取得 ${allBookmarks.length} 個書簽`)
 
-    // 增量比對
+    // 增量比對 + ignored handles 過濾
     const seenSet = new Set(state.seenIds)
-    const newBookmarks = allBookmarks.filter(b => !seenSet.has(b.id))
-    log(`✨ 新增書簽：${newBookmarks.length} 個`)
+    const ignoredHandles = new Set<string>(
+      (config.ignored_handles ?? []).map((h: string) => h.toLowerCase())
+    )
+    const beforeIgnore = allBookmarks.filter(b => !seenSet.has(b.id))
+    const newBookmarks = beforeIgnore.filter(b => {
+      const handle = (b.author_id ?? "").toLowerCase()
+      if (ignoredHandles.has(handle)) {
+        log(`  ⛔ 略過 ignored handle: ${b.author_id} (tweet ${b.id})`)
+        return false
+      }
+      return true
+    })
+    const ignoredCount = beforeIgnore.length - newBookmarks.length
+    log(`✨ 新增書簽：${newBookmarks.length} 個${ignoredCount > 0 ? `（過濾 ${ignoredCount} 個 ignored）` : ""}`)
 
     if (newBookmarks.length === 0) {
       log("  沒有新書簽，同步完成")

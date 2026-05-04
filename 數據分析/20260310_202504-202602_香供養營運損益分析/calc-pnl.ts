@@ -1,3 +1,6 @@
+// ⚠️ FB 廣告費對帳（代理商 $63K vs FB API 實際）已獨立到 compare-ad-spend.ts
+//    這裡的 adMonths 仍保留「代理商合約收費」數字（就是實際付出去的錢），
+//    要看「合約 vs 平台實花」差額，請跑 `bun compare-ad-spend.ts`
 import XLSX from "xlsx";
 
 const workbook = XLSX.readFile("/Users/laichaochang/Downloads/訂單資料表-20260310192411.xlsx");

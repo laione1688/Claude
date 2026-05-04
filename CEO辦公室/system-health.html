@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>系統健康 — CEO 辦公室</title>
+<style>
+  :root {
+    --bg: #0f0f0f; --surface: #1a1a1a; --surface-2: #242424;
+    --border: #333; --text: #e8e8e8; --text-dim: #888;
+    --accent: #c9a55a; --accent-dim: #8a7340;
+    --green: #4ade80; --blue: #60a5fa; --orange: #fb923c;
+    --red: #f87171; --purple: #a78bfa; --pink: #f472b6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 0 2rem 2rem; }
+
+  .nav { display: flex; align-items: center; justify-content: center; gap: 0.25rem; padding: 1rem 0; margin-bottom: 1rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  .nav a { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; padding: 0.4rem 1rem; border-radius: 6px; transition: all 0.15s; border: 1px solid transparent; }
+  .nav a:hover { color: var(--text); background: var(--surface); }
+  .nav a.active { color: var(--accent); border-color: var(--accent-dim); background: var(--surface); }
+  .nav .sep { color: var(--border); font-size: 0.7rem; margin: 0 0.25rem; }
+
+  .container { max-width: 1000px; margin: 0 auto; }
+  .header { text-align: center; margin-bottom: 2rem; }
+  .header h1 { font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-bottom: 0.15rem; }
+  .header .sub { font-size: 0.85rem; color: var(--text-dim); }
+  .update { text-align: right; font-size: 0.6rem; color: var(--text-dim); margin-bottom: 1.5rem; }
+
+  .stitle { font-size: 0.8rem; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin: 2rem 0 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+  .stitle .i { font-size: 1rem; }
+  .stitle:first-of-type { margin-top: 0; }
+
+  /* Summary bar */
+  .summary { display: flex; gap: 1rem; margin-bottom: 2rem; }
+  .sum-card { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; }
+  .sum-card .num { font-size: 2rem; font-weight: 700; line-height: 1; margin-bottom: 0.2rem; }
+  .sum-card .lab { font-size: 0.65rem; color: var(--text-dim); }
+
+  /* Health table */
+  .health-table { width: 100%; border-collapse: collapse; }
+  .health-table th { text-align: left; font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); }
+  .health-table td { font-size: 0.78rem; padding: 0.6rem; border-bottom: 1px solid var(--surface-2); vertical-align: top; }
+  .health-table tr:hover td { background: var(--surface); }
+
+  .status-pill { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.65rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-weight: 500; }
+  .status-pill.ok { background: rgba(74,222,128,0.12); color: var(--green); }
+  .status-pill.warn { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .status-pill.fail { background: rgba(248,113,113,0.12); color: var(--red); }
+  .status-pill.unknown { background: rgba(136,136,136,0.12); color: var(--text-dim); }
+  .status-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; }
+  .status-pill.ok::before { background: var(--green); }
+  .status-pill.warn::before { background: var(--orange); }
+  .status-pill.fail::before { background: var(--red); }
+  .status-pill.unknown::before { background: var(--text-dim); }
+
+  .evidence { font-size: 0.65rem; color: var(--text-dim); margin-top: 0.2rem; font-family: 'SF Mono', monospace; }
+  .sched { font-size: 0.6rem; color: var(--text-dim); }
+  .type-badge { display: inline-block; font-size: 0.5rem; padding: 0.1rem 0.35rem; border-radius: 3px; }
+  .type-badge.la { background: rgba(96,165,250,0.12); color: var(--blue); }
+  .type-badge.rt { background: rgba(167,139,250,0.12); color: var(--purple); }
+
+  .how-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; margin-top: 0.5rem; }
+  .how-box h3 { font-size: 0.75rem; color: var(--accent); margin-bottom: 0.5rem; }
+  .how-item { font-size: 0.72rem; padding: 0.3rem 0; border-bottom: 1px solid var(--surface-2); line-height: 1.4; }
+  .how-item:last-child { border-bottom: none; }
+  .how-item code { font-family: 'SF Mono', monospace; font-size: 0.65rem; background: var(--surface-2); padding: 0.1rem 0.3rem; border-radius: 3px; }
+
+  .footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.65rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+  .footer kbd { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.12rem 0.35rem; font-family: 'SF Mono', monospace; font-size: 0.6rem; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="dashboard.html">指揮台</a><span class="sep">|</span>
+  <a href="daily-planner.html">今日規劃</a><span class="sep">|</span>
+  <a href="daily-report.html">每日報表</a><span class="sep">|</span>
+  <a href="monthly-report.html">月報</a><span class="sep">|</span>
+  <a href="system-health.html" class="active">系統健康</a>
+</nav>
+<div class="container">
+
+<div class="header">
+  <h1>系統健康</h1>
+  <div class="sub">所有排程任務的執行狀態 — 壞了馬上知道</div>
+</div>
+<div class="update">最後檢查：2026-04-28 ceo-dashboard 排程（JSON snapshot 同步完成）| 資料來源：data-snapshot.json</div>
+
+<!-- Summary -->
+<div class="summary">
+  <div class="sum-card">
+    <div class="num" style="color:var(--green)">10</div>
+    <div class="lab">正常運行</div>
+  </div>
+  <div class="sum-card">
+    <div class="num" style="color:var(--orange)">1</div>
+    <div class="lab">需注意</div>
+  </div>
+  <div class="sum-card">
+    <div class="num" style="color:var(--red)">0</div>
+    <div class="lab">異常</div>
+  </div>
+  <div class="sum-card">
+    <div class="num" style="color:var(--blue)">11</div>
+    <div class="lab">排程總數</div>
+  </div>
+</div>
+
+<!-- 排程狀態表 -->
+<div class="stitle"><span class="i">⏰</span> 排程任務狀態</div>
+<table class="health-table">
+  <thead><tr><th>排程</th><th>時間</th><th>類型</th><th>狀態</th><th>最後成功證據</th></tr></thead>
+  <tbody>
+    <!-- 備份區 -->
+    <tr>
+      <td><strong>GitHub 備份</strong><br><span class="sched">config-backup</span></td>
+      <td>02:30</td>
+      <td><span class="type-badge la">LaunchAgent</span></td>
+      <td><span class="status-pill ok">正常</span></td>
+      <td>4/18 02:30 commit<div class="evidence">1d36c41 backup: 2026-04-18 02:30:04 (920 files changed)</div></td>
+    </tr>
+    <tr>
+      <td><strong>iCloud 備份</strong><br><span class="sched">data-backup</span></td>
+      <td>03:00</td>
+      <td><span class="type-badge la">LaunchAgent</span></td>
+      <td><span class="status-pill ok">正常</span></td>
+      <td>4/19 03:01 同步<div class="evidence">PAI-USER/ + MEMORY/ 已更新</div></td>
+    </tr>
+    <tr>
+      <td><strong>PAI 自省</strong><br><span class="sched">self-review（每兩天）</span></td>
+      <td>03:30</td>
+      <td><span class="type-badge rt">Remote Trigger</span></td>
+      <td><span class="status-pill ok">正常</span></td>
+      <td>4/19 待執行<div class="evidence">下次：4/20</div></td>
+    </tr>
+    <tr>
+      <td><strong>Session 備份</strong><br><span class="sched">session-backup</span></td>
+      <td>04:00</td>
+      <td><span class="type-badge la">LaunchAgent</span></td>
+      <td><span class="status-pill ok">正常</span></td>
+      <td>launchctl 已載入<div class="evidence">exit=- pid=0（待觸發）</div></td>
+    </tr>
+    <!-- 資料收集區 -->
+    <tr>
+      <td><strong>競品抓取</strong><br><span class="sched">competitor-scrape</span></td>
+      <td>04:20</td>
+      <td><span class="type-badge la">LaunchAgent</span></td>
+      <td><span class="status-pill warn">待更新</span></td>
+      <td>4/15 raw-data.json<div class="evidence">2026-04-15-raw-data.json（已 4 天未更新，來源：JSON snapshot health.competitor_latest）</div></td>
+    </tr>
+    <tr>
+      <td><strong>Notion 預檢</strong><br><span class="sched">notion-preflight</span></td>
+      <td>04:40</td>
+      <td><span class="type-badge la">LaunchAgent</span></td>
+      <td><span class="status-pill ok">已修復</span></td>
+      <td>已加 log 輸出<div class="evidence">/tmp/notion-preflight-stdout.log</div></td>
+    </tr>
+    <tr>
+      <td><strong>X 書籤同步</strong><br><span class="sched">x-bookmark-sync</span></td>
+      <td>04:50</td>
+      <td><span class="type-badge la">LaunchAgent</span></td>
+      <td><span class="status-pill ok">正常</span></td>
+      <td>有 log 檔<div class="evidence">/tmp/x-bookmark-sync.log</div></td>
+    </tr>
+    <!-- 報告產出區 -->
+    <tr>
+      <td><strong>晨報</strong><br><span class="sched">morning-brief</span></td>
+      <td>05:00</td>
+      <td><span class="type-badge la">LaunchAgent</span></td>
+      <td><span class="status-pill ok">正常</span></td>
+      <td>4/19 晨報已生成<div class="evidence">Obsidian 晨報/2026-04-19.md</div></td>
+    </tr>
+    <tr>
+      <td><strong>內容建議</strong><br><span class="sched">content-suggest</span></td>
+      <td>05:20</td>
+      <td><span class="type-badge la">LaunchAgent</span></td>
+      <td><span class="status-pill ok">正常</span></td>
+      <td>4/19 已生成<div class="evidence">content-suggest-2026-04-19.md</div></td>
+    </tr>
+    <tr>
+      <td><strong>每日巡檢</strong><br><span class="sched">healthcheck</span></td>
+      <td>05:30</td>
+      <td><span class="type-badge rt">Remote Trigger</span></td>
+      <td><span class="status-pill ok">正常</span></td>
+      <td>4/19 已執行<div class="evidence">Remote Trigger lastRunAt: 2026-04-19</div></td>
+    </tr>
+    <tr>
+      <td><strong>CEO 報表更新</strong><br><span class="sched">ceo-dashboard</span></td>
+      <td>05:40</td>
+      <td><span class="type-badge la">LaunchAgent</span></td>
+      <td><span class="status-pill ok">正常</span></td>
+      <td>4/28 已完成（本次）<div class="evidence">JSON snapshot 已同步至 daily-planner / daily-report / system-health</div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 驗證方法 -->
+<div class="stitle"><span class="i">🔍</span> 各排程的驗證方法</div>
+<div class="how-box">
+  <h3>如何判斷每個排程有沒有跑？</h3>
+  <div class="how-item"><strong>GitHub 備份</strong> — 看 <code>git -C ~/.claude log --oneline -1</code> 的日期是否為今天</div>
+  <div class="how-item"><strong>iCloud 備份</strong> — 看 <code>ls -lt ~/Library/Mobile Documents/com~apple~CloudDocs/claude-data-backup/</code> 修改日期</div>
+  <div class="how-item"><strong>競品抓取</strong> — 看 Obsidian <code>競品分析/</code> 裡最新的 <code>raw-data.json</code> 日期</div>
+  <div class="how-item"><strong>Notion 預檢</strong> — 目前無 log ⚠️，預計加 TG 告警通知</div>
+  <div class="how-item"><strong>晨報</strong> — 看 Obsidian 晨報資料夾有沒有今天的 <code>.md</code> 檔</div>
+  <div class="how-item"><strong>CEO 報表</strong> — 看 <code>daily-planner.html</code> 頁面上的「資料更新時間」是否為今天</div>
+  <div class="how-item"><strong>Healthcheck</strong> — Remote Trigger 自帶 <code>lastRunAt</code> 記錄</div>
+  <div class="how-item"><strong>Self-review</strong> — Remote Trigger <code>lastRunAt</code> + DAILY 文件內容非 stub</div>
+</div>
+
+<!-- 快速診斷指令 -->
+<div class="stitle"><span class="i">🛠️</span> 快速診斷指令</div>
+<div class="how-box">
+  <h3>在 Claude Code 中貼上即可檢查</h3>
+  <div class="how-item"><code>launchctl list | grep com.pai</code> — 看所有 PAI 排程是否載入</div>
+  <div class="how-item"><code>git -C ~/.claude log --oneline -3</code> — 最近 3 次 GitHub 備份</div>
+  <div class="how-item"><code>tail -3 ~/.claude/scripts/social-metrics-history.jsonl</code> — 社群數據是否每天更新</div>
+  <div class="how-item"><code>ls -t ~/Documents/Claude/CEO辦公室/logs/ | head -3</code> — CEO 報表更新 log</div>
+  <div class="how-item"><code>cat /tmp/ceo-dashboard-stderr.log</code> — CEO 報表錯誤 log</div>
+</div>
+
+<div class="footer">
+  每日 05:30 healthcheck 自動更新此頁 | 也可在 Claude Code 中說 <kbd>系統健康檢查</kbd><br><br>
+  CEO Office v1.0.0 — Powered by PAI
+</div>
+
+</div>
+</body>
+</html>

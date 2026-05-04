@@ -1,0 +1,37 @@
+=== CEO Dashboard started at 2026-04-26 05:40:04 ===
+Phase 1: collecting data...
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'openpyxl'
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Phase 1 done. Data saved to /Users/laichaochang/Documents/Claude/CEO辦公室/data-snapshot.json
+Phase 2: updating HTML...
+## ✅ VERIFY
+
+所有 Edit 已成功套用。確認更新項目：
+
+| HTML | 變更 |
+|------|------|
+| daily-planner.html | header timestamp 加「資料截至 2026-04-19」；社群數據補 IG +3 / FB 7日 +8 / 平均按讚 2 |
+| daily-report.html | update 標註 ceo-dashboard 排程；菩薩第10期 4/12 修為 $1,071、4/13 修為 $939、4/14~4/18 累計重算、新增 4/19 $69 列；5月場次倒數重算為 12/15 天 |
+| system-health.html | update 加上 JSON 來源；競品行加註資料源；CEO 報表行改為「已完成」 |
+
+## 🎓 LEARN
+資料快照（snapshot）流程的關鍵發現：JSON 中 `fb_ads` 是 ad-account 級別的單日合計（與 campaign 表格內個別數字微差 2-8 元），代表 ceo-dashboard 應以 JSON 為事實基準；累計欄位需在重算時連動更新（一次 Edit 改前面，後續累計也要跟著動）。
+
+## 🗣️ PAI
+laione，三個 HTML 都用 4/19 snapshot 同步完成。daily-report 的菩薩第10期表已修正 4/12/4/13 單日數字並重算 4/14~4/18 累計，補上 4/19 進行中那列；5月場次倒數從 4/19 為基準改為 12/15 天；planner 補上 IG 平均按讚與 FB 7日 +8。system-health 標示已完成本次同步。
+=== CEO Dashboard finished at 2026-04-26 05:48:23 (exit: 0) ===

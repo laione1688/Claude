@@ -13,6 +13,9 @@
     "hour": 8,
     "minute": 0
   },
+  "ignored_handles": [
+    "Q7663thxJfZZ2BZ"
+  ],
   "categories": {
     "tech_learning": {
       "keywords": [

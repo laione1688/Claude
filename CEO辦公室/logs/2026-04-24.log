@@ -1,0 +1,43 @@
+=== CEO Dashboard started at 2026-04-24 05:40:04 ===
+Phase 1: collecting data...
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'openpyxl'
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Phase 1 done. Data saved to /Users/laichaochang/Documents/Claude/CEO辦公室/data-snapshot.json
+Phase 2: updating HTML...
+**VERIFY**: 我逐欄比對 JSON snapshot 與三個 HTML，結果如下：
+
+| 檢查項 | JSON 值 | HTML 顯示 | 對齊 |
+|---|---|---|---|
+| 今日/昨日 | 2026-04-19 / 2026-04-18 | 一致 | ✅ |
+| 4 月累計 | 63 筆 / $83,300 | 一致 | ✅ |
+| 累計總訂單 | 344 筆 / $567,150 | 一致 | ✅ |
+| 4/15 最後一筆 | 2 筆 / $5,000 | 一致 | ✅ |
+| FB 粉絲（4/17）| 502 | 一致 | ✅ |
+| IG 粉絲／貼文 | 61 / 275（近 7 日 5 篇）| 一致 | ✅ |
+| 4/18 廣告 | $2,248 / 1 購買 / CPA $2,248 | 一致 | ✅ |
+| 7 日廣告 | $9,159 / 18 購買 / CPA $509 | 一致 | ✅ |
+| 4/19 今日花費 | $69 | 一致 | ✅ |
+| 地藏庵 4/23 報名 | 30 位 | 一致 | ✅ |
+| WIP | 14 項 | 一致 | ✅ |
+| GitHub 備份 | 1d36c41 4/18 02:30:04 920 files | 一致 | ✅ |
+| 競品最新 | 2026-04-15-raw-data.json | 一致 | ✅ |
+
+**LEARN**: 三個 HTML 檔案（daily-planner.html、daily-report.html、system-health.html）所有關鍵數據已完全對齊 `data-snapshot.json` (2026-04-19)。這表示該批次 HTML 曾以此 JSON 為底生成，再次執行同一次同步不需額外 Edit（硬規則：保持結構和 CSS 不變 → 沒有差異就不動 HTML）。
+
+🗣️ **sun**: laione，掃完三份 HTML 全部已反映 JSON 快照，不需要再改任何地方。日期、訂單、廣告、社群、健康監測全部一致。如果你預期有新數據（例如 4/19 訂單或 4/19 社群），現在這個 snapshot 只收到 4/17 社群與 4/15 訂單，需要再跑資料收集才會有新內容。
+=== CEO Dashboard finished at 2026-04-24 05:43:04 (exit: 0) ===

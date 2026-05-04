@@ -1,0 +1,41 @@
+=== CEO Dashboard started at 2026-04-10 05:40:03 ===
+Phase 1: collecting data...
+Data snapshot saved: /Users/laichaochang/Documents/Claude/CEO辦公室/data-snapshot.json
+  WIP: 11 | Social: 7d | Orders: 14d | FB Ads: 8d
+Phase 1 done. Data saved to /Users/laichaochang/Documents/Claude/CEO辦公室/data-snapshot.json
+Phase 2: updating HTML...
+
+
+━━━ ✅ VERIFY ━━━ 6/7
+
+三個檔案全部更新完成。驗證摘要：
+
+**daily-planner.html（今日規劃）**
+- ✅ 日期 → 4/10（週五）
+- ✅ 壽山巖：alert → done（34 位，已截止）
+- ✅ 地藏庵：D+4
+- ✅ 昨日營收：$14,050 / 10 筆
+- ✅ 累計：323 筆 / $538,100
+- ✅ 行動計畫 W1/W2 同步更新
+
+**daily-report.html（每日報表）**
+- ✅ 報表日期 → 4/9（週四），生成 4/10
+- ✅ KPI：10 單 / $14,050 / 月累計 44 筆 $56,250
+- ✅ FB Ads 7 日：$9,773 / 20 購買 / CPA $489
+- ✅ 4/9 單日：$2,101 / 5 購買 / CPA $420
+- ✅ 菩薩 10 期追蹤新增 4/9 行（累計 $16,421 / 27 購 / CPA $608）
+- ✅ 營收走勢圖 → 4/3~4/9
+- ✅ 場次：壽山巖 34 位已截止，地藏庵 16 位
+- ✅ 制作中：14 件 → 11 件
+
+**system-health.html（系統健康）**
+- ✅ 所有 9 項排程證據更新至 4/10
+- ✅ GitHub backup：1beda2b / 25 files
+- ✅ 競品抓取：2026-04-09-raw-data.json
+
+━━━ 📚 LEARN ━━━ 7/7
+
+data-snapshot.json 的 FB Ads 資料是帳戶級別（所有 campaign 合計），無法拆分單一 campaign。菩薩 10 期追蹤表使用帳戶數據作為代理值。
+
+🗣️ PAI: 三個 CEO 辦公室報表已全部更新完成。亮點：4/9 營收 $14,050 創近期新高，壽山巖截止共 34 位報名（+13），FB 廣告 CPA 持續改善至 $420。
+=== CEO Dashboard finished at 2026-04-10 05:47:30 (exit: 0) ===

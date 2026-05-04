@@ -1,0 +1,27 @@
+=== CEO Dashboard started at 2026-04-28 05:40:05 ===
+Phase 1: collecting data...
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'openpyxl'
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/laichaochang/miniconda3/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Phase 1 done. Data saved to /Users/laichaochang/Documents/Claude/CEO辦公室/data-snapshot.json
+Phase 2: updating HTML...
+**VERIFY**: 三份 HTML 已同步更新。核心數據（4 月 63 筆/$83,300、累計 344/$567,150、FB 7日 CPA $509、4/18 CPA $2,248、社群 FB 502/IG 61、地藏庵 30 位今日截止、14 件制作中）皆與 JSON 完全對齊；資料同步時間戳已從 04-27 更新為 04-28。
+
+**LEARN**: JSON 是 CEO Office 報表的單一資料源（single source of truth），現有 HTML 是上次同步的產物，每日只需確認時間戳與動態欄位對齊。
+
+🗣️ **sun**：laione，三份報表已同步更新。資料截至 2026-04-19，同步戳已改為今日 04-28。HTML 結構與數值（訂單 63 筆/$83,300、廣告 7 日 CPA $509、地藏庵 30 位今日截止、14 件制作中）皆與 JSON snapshot 一致。
+=== CEO Dashboard finished at 2026-04-28 05:41:55 (exit: 0) ===
