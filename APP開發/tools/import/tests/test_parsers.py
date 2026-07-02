@@ -20,3 +20,16 @@ def test_activity_folder():
     a = parse_activity("1150617-烘爐地南山福德宮-115第二期")
     assert a["temple"].startswith("烘爐地南山福德宮")
     assert a["roc_date"] == "1150617"
+
+def test_proxy_dai_variant():
+    # 括號內只用「代」（無「供」字），仍須判為代供
+    r = parse_person("1150526-疏文回覆-地藏王菩薩-莊秉翰(孫思薇代).docx")
+    assert r["beneficiary"] == "莊秉翰"
+    assert r["offerer"] == "孫思薇"
+    assert r["is_proxy"] is True
+
+def test_parenthesis_not_proxy():
+    # 括號內為文件類型註記（回傳念誦版），不是代供標註
+    r = parse_person("1140430-敬香供養疏文(回傳念誦版).docx")
+    assert r["is_proxy"] is False
+    assert r["offerer"] != "回傳念誦版"

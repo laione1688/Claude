@@ -5,7 +5,7 @@ def parse_person(filename: str) -> dict:
     stem = re.sub(r"docx$", "", stem)  # 清 "許婼絜docx" 這類髒尾
     parts = stem.split("-")
     name_field = parts[-1].strip()
-    proxy = re.search(r"(.+?)\((.+?)代供\)", name_field)
+    proxy = re.search(r"(.+?)\((.+?)代(?:供)?\)", name_field)
     if proxy:
         beneficiary, offerer = proxy.group(1), proxy.group(2)
         is_proxy = True
